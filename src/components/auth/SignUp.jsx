@@ -293,7 +293,7 @@ const SignUp = () => {
         >
           Don't have an account?{' '}
           <a
-            href='/signin'
+            href='/auth/signin'
             className='text-blue-600 hover:text-blue-500 font-medium'
           >
             Sign in
