@@ -58,7 +58,7 @@ const SignIn = () => {
       heroSubtitle='Tap into the world of endless possibilities by gaining access to tech in-demand skills and resources.'
     >
       {/* Social Sign In Options */}
-      <div className='mb-6'>
+      <div className='mb-4'>
         <div className='flex items-center gap-4 mb-4'>
           <div className='flex-1 border-t border-gray-200'></div>
           <span
@@ -128,7 +128,7 @@ const SignIn = () => {
 
       {/* Manual Sign In */}
       <div className='mb-4'>
-        <div className='flex items-center gap-4 mb-4 mt-6'>
+        <div className='flex items-center gap-4 mb-4 mt-2'>
           <div className='flex-1 border-t border-gray-300'></div>
           <span
             className='text-sm text-gray-600 whitespace-nowrap'
