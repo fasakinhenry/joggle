@@ -89,7 +89,7 @@ const SignUp = () => {
         <div className='flex gap-4 justify-center'>
           {/* Google */}
           <button
-            onClick={() => handleSocialSignIn('Google')}
+            onClick={() => handleSocialSignUp('Google')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg className='w-5 h-5' viewBox='0 0 24 24'>
@@ -114,7 +114,7 @@ const SignUp = () => {
 
           {/* LinkedIn */}
           <button
-            onClick={() => handleSocialSignIn('LinkedIn')}
+            onClick={() => HandleSocialSignUp('LinkedIn')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
@@ -128,7 +128,7 @@ const SignUp = () => {
 
           {/* Facebook */}
           <button
-            onClick={() => handleSocialSignIn('Facebook')}
+            onClick={() => HandleSocialSignUp('Facebook')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
@@ -143,8 +143,8 @@ const SignUp = () => {
       </div>
 
       {/* Manual Sign Up Form */}
-      <div className='mb-3'>
-        <div className='flex items-center gap-4 mb-4 mt-1'>
+      <div className='mb-4'>
+        <div className='flex items-center gap-4 mb-4'>
           <div className='flex-1 border-t border-gray-300'></div>
           <span
             className='text-sm text-gray-600 whitespace-nowrap'
