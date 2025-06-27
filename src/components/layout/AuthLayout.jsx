@@ -22,12 +22,12 @@ const AuthLayout = ({ children, title, subtitle, heroTitle, heroSubtitle }) => {
         <div className='absolute inset-0 bg-black/70'></div>
 
         {/* Background Pattern */}
-        {/* <div className='absolute inset-0 opacity-10'>
-          <div className='absolute top-20 left-20 w-32 h-32 border border-white/20 rounded-lg transform rotate-12'></div>
-          <div className='absolute top-40 right-32 w-24 h-24 border border-white/20 rounded-lg transform -rotate-12'></div>
-          <div className='absolute bottom-32 left-32 w-28 h-28 border border-white/20 rounded-lg transform rotate-45'></div>
-          <div className='absolute bottom-20 right-20 w-20 h-20 border border-white/20 rounded-lg transform -rotate-45'></div>
-        </div> */}
+        <div className='absolute inset-0 opacity-100'>
+          <div className='absolute top-20 left-20 w-32 h-32 bg-blue border border-white/20 rounded-lg transform rotate-12'></div>
+          <div className='absolute top-40 right-32 w-24 h-24 border border-white/30 rounded-lg transform rotate-12'></div>
+          <div className='absolute bottom-32 left-32 w-28 h-28 border border-white/30 rounded-lg transform rotate-45'></div>
+          <div className='absolute bottom-20 right-20 w-20 h-20 border border-white/30 rounded-lg transform -rotate-45'></div>
+        </div>
 
         {/* Hero Content */}
         <div className='relative z-10 flex flex-col justify-center px-12 lg:px-16 xl:px-20 text-white'>
