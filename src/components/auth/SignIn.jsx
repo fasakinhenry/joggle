@@ -127,7 +127,7 @@ const SignIn = () => {
       </div>
 
       {/* Manual Sign In */}
-      <div className='mb-6'>
+      <div className='mb-4'>
         <div className='flex items-center gap-4 mb-4 mt-6'>
           <div className='flex-1 border-t border-gray-300'></div>
           <span

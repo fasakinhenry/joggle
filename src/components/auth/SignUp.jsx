@@ -68,21 +68,29 @@ const SignUp = () => {
   return (
     <AuthLayout
       title='Sign up for Joggle'
-      heroTitle='Welcome to Your Journey with Joggle'
+      subtitle='Enter your details to get started with us'
+      heroTitle='Reach the stars with Joggle!'
       heroSubtitle='Your gateway to gaining in-demand skills and joining our talent community!'
     >
       {/* Social Sign Up Options */}
+      {/* Social Sign In Options */}
       <div className='mb-6'>
-        <p
-          className='text-center text-sm text-gray-600 mb-4'
-          style={{ fontFamily: 'Geist, sans-serif' }}
-        >
-          Social sign up options
-        </p>
+        <div className='flex items-center gap-4 mb-4'>
+          <div className='flex-1 border-t border-gray-200'></div>
+          <span
+            className='text-sm text-gray-600 whitespace-nowrap'
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Social sign in options
+          </span>
+          <div className='flex-1 border-t border-gray-200'></div>
+        </div>
+
         <div className='flex gap-4 justify-center'>
+          {/* Google */}
           <button
-            onClick={() => handleSocialSignUp('Google')}
-            className='flex items-center justify-center w-12 h-12 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors'
+            onClick={() => handleSocialSignIn('Google')}
+            className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg className='w-5 h-5' viewBox='0 0 24 24'>
               <path
@@ -103,9 +111,11 @@ const SignUp = () => {
               />
             </svg>
           </button>
+
+          {/* LinkedIn */}
           <button
-            onClick={() => handleSocialSignUp('LinkedIn')}
-            className='flex items-center justify-center w-12 h-12 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors'
+            onClick={() => handleSocialSignIn('LinkedIn')}
+            className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
               className='w-5 h-5 text-blue-600'
@@ -115,9 +125,11 @@ const SignUp = () => {
               <path d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z' />
             </svg>
           </button>
+
+          {/* Facebook */}
           <button
-            onClick={() => handleSocialSignUp('Facebook')}
-            className='flex items-center justify-center w-12 h-12 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors'
+            onClick={() => handleSocialSignIn('Facebook')}
+            className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
               className='w-5 h-5 text-blue-600'
@@ -131,13 +143,17 @@ const SignUp = () => {
       </div>
 
       {/* Manual Sign Up Form */}
-      <div className='mb-6'>
-        <h3
-          className='text-center text-sm font-medium text-gray-700 mb-4'
-          style={{ fontFamily: 'Geist, sans-serif' }}
-        >
-          Manual sign up
-        </h3>
+      <div className='mb-3'>
+        <div className='flex items-center gap-4 mb-4 mt-6'>
+          <div className='flex-1 border-t border-gray-300'></div>
+          <span
+            className='text-sm text-gray-600 whitespace-nowrap'
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Manual sign in
+          </span>
+          <div className='flex-1 border-t border-gray-300'></div>
+        </div>
 
         <form onSubmit={handleSubmit} className='space-y-4'>
           {/* First Name */}
@@ -158,7 +174,7 @@ const SignUp = () => {
                 value={formData.firstName}
                 onChange={handleInputChange}
                 placeholder='Enter your first name'
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.firstName ? 'border-red-500' : 'border-gray-300'
                 }`}
                 style={{ fontFamily: 'Geist, sans-serif' }}
@@ -187,7 +203,7 @@ const SignUp = () => {
                 value={formData.lastName}
                 onChange={handleInputChange}
                 placeholder='Enter your last name'
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.lastName ? 'border-red-500' : 'border-gray-300'
                 }`}
                 style={{ fontFamily: 'Geist, sans-serif' }}
@@ -216,7 +232,7 @@ const SignUp = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder='Enter your email'
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
                 }`}
                 style={{ fontFamily: 'Geist, sans-serif' }}
@@ -245,7 +261,7 @@ const SignUp = () => {
                 value={formData.password}
                 onChange={handleInputChange}
                 placeholder='Create a password'
-                className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.password ? 'border-red-500' : 'border-gray-300'
                 }`}
                 style={{ fontFamily: 'Geist, sans-serif' }}
@@ -277,7 +293,7 @@ const SignUp = () => {
           {/* Submit Button */}
           <button
             type='submit'
-            className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
+            className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
             style={{ fontFamily: 'Geist, sans-serif' }}
           >
             Sign up

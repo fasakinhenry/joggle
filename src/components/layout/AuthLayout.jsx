@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthLayout = ({ children, title, subtitle, heroTitle, heroSubtitle }) => {
   return (
-    <div className='min-h-screen flex'>
+    <div className='min-h-screen flex max-h-screen h-screen'>
       {/* Left Side - Hero Section */}
       <div className='hidden lg:flex lg:w-1/2 relative overflow-hidden'>
         {/* Background Image */}
@@ -66,7 +66,7 @@ const AuthLayout = ({ children, title, subtitle, heroTitle, heroSubtitle }) => {
       </div>
 
       {/* Right Side - Form Section */}
-      <div className='flex-1 flex items-center justify-center px-6 sm:px-8 lg:px-12 bg-white'>
+      <div className='flex-1 flex items-top justify-center px-6 sm:px-8 lg:px-12 bg-white overflow-y-scroll py-5'>
         <div className='w-full max-w-md'>
           <div className='text-center mb-8 lg:hidden'>
             <h1
