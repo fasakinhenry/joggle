@@ -73,7 +73,6 @@ const SignUp = () => {
       heroSubtitle='Your gateway to gaining in-demand skills and joining our talent community!'
     >
       {/* Social Sign Up Options */}
-      {/* Social Sign In Options */}
       <div className='mb-6'>
         <div className='flex items-center gap-4 mb-4'>
           <div className='flex-1 border-t border-gray-200'></div>
