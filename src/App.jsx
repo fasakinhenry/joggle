@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import Landing from './pages/Landing';
@@ -10,7 +15,7 @@ import Task from './pages/cosmos/Task';
 import Inbox from './pages/cosmos/Inbox';
 import Group from './pages/cosmos/Group';
 import Settings from './pages/cosmos/Settings';
-import DashboardLayout from './components/layout/DashboardLayout';
+import DashboardLayout from './layout/DashboardLayout';
 
 function App() {
   return (
@@ -21,20 +26,17 @@ function App() {
         <Route path='/auth/signup' element={<SignUp />} />
 
         {/* Cosmos Portal Routes */}
-        <Route path='/cosmos' element={<Dashboard />} />
-        <Route path='/cosmos/dashboard' element={<Dashboard />} />
-        <Route path='/cosmos/lesson' element={<Lesson />} />
-        <Route path='/cosmos/task' element={<Task />} />
-        <Route path='/cosmos/inbox' element={<Inbox />} />
-        <Route path='/cosmos/group' element={<Group />} />
-        <Route path='/cosmos/settings' element={<Settings />} />
-
-        <Route path='/dashboard' element={<DashboardLayout />}>
-          <Route index element={<Home />} /> {/* /dashboard */}
-          <Route path='home' element={<Home />} />
+        <Route path='/cosmos' element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path='tasks' element={<Task />} />
           <Route path='inbox' element={<Inbox />} />
-          {/* More routes can be nested here */}
+          <Route path='lessons' element={<Lesson />} />
+          <Route path='group' element={<Group />} />
+          <Route path='settings' element={<Settings />} />
         </Route>
+
+        {/* Redirect unknown routes to dashboard */}
+        <Route path='*' element={<Navigate to='/cosmos' replace />} />
       </Routes>
     </Router>
   );

@@ -32,10 +32,6 @@ const Task = () => {
   ];
 
   return (
-    <div className='flex h-screen bg-gray-50'>
-      <Sidebar />
-      <div className='flex-1 flex flex-col overflow-auto'>
-        <Header />
         <div className='flex-1 p-6'>
           <div className='max-w-4xl mx-auto'>
             <h1 className='text-3xl font-bold text-gray-900 mb-8'>My Tasks</h1>
@@ -88,8 +84,6 @@ const Task = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 

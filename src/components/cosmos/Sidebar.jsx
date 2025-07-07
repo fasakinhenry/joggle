@@ -20,7 +20,7 @@ const navItems = [
 
 const Sidebar = () => {
   return (
-    <aside className='w-64 bg-white shadow-md h-full px-4 py-6 flex flex-col'>
+    <aside className='w-64 bg-white h-full px-4 py-6 flex flex-col'>
       <h1 className='text-xl font-bold text-purple-600 mb-8'>Cosmos</h1>
       <nav className='flex flex-col gap-4'>
         {navItems.map(({ name, icon: Icon, path }) => (
@@ -43,7 +43,13 @@ const Sidebar = () => {
       <div className='mt-auto'>
         <NavLink
           to='#'
-          className='flex items-center gap-3 px-4 py-2 mt-4 text-red-500 hover:bg-red-100 rounded-lg'
+          className='flex items-center gap-3 px-4 py-2 mt-4rounded-lg'
+        >
+          <Settings size={20} /> Settings
+        </NavLink>
+        <NavLink
+          to='#'
+          className='flex items-center gap-3 px-4 py-2 mt-4 text-red-500 hover: bg-red-100 rounded-lg'
         >
           <LogOut size={20} /> Logout
         </NavLink>

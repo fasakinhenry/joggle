@@ -1,7 +1,7 @@
 // src/components/auth/SignIn.jsx
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
-import AuthLayout from '../layout/AuthLayout';
+import AuthLayout from '../../layout/AuthLayout';
 
 const SignIn = () => {
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, User, Mail, Lock } from 'lucide-react';
-import AuthLayout from '../layout/AuthLayout';
+import AuthLayout from '../../layout/AuthLayout';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({

@@ -58,7 +58,7 @@ const MainContent = () => {
   ];
 
   return (
-    <div className='flex-1 p-6 overflow-y-auto'>
+    <div className='flex-1 p-6 pt-0 pl-0 overflow-y-auto'>
       {/* Hero Section */}
       <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-8'>
         <div className='flex items-center justify-between'>

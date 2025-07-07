@@ -5,10 +5,7 @@ import Header from '../../components/cosmos/Header';
 
 const Lesson = () => {
   return (
-    <div className='flex h-screen bg-gray-50'>
-      <Sidebar />
-      <div className='flex-1 flex flex-col'>
-        <Header />
+
         <div className='flex-1 p-6'>
           <div className='max-w-4xl mx-auto'>
             <h1 className='text-3xl font-bold text-gray-900 mb-8'>
@@ -75,8 +72,6 @@ const Lesson = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
