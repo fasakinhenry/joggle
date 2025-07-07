@@ -21,8 +21,16 @@ const navItems = [
 const Sidebar = () => {
   return (
     <aside className='w-64 bg-white h-full px-4 py-6 flex flex-col'>
-      <h1 className='text-xl font-bold text-purple-600 mb-8'>Cosmos</h1>
-      <nav className='flex flex-col gap-4'>
+      <h1
+        className='text-xl font-bold text-purple-600 mb-8'
+        style={{ fontFamily: 'Cabinet Grotesk, sans-serif' }}
+      >
+        Cosmos
+      </h1>
+      <nav
+        className='flex flex-col gap-1'
+        style={{ fontFamily: 'Geist, sans-serif' }}
+      >
         {navItems.map(({ name, icon: Icon, path }) => (
           <NavLink
             key={name}
@@ -30,7 +38,7 @@ const Sidebar = () => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
                 isActive
-                  ? 'bg-purple-100 text-purple-700 font-semibold'
+                  ? 'bg-purple-100 text-purple-700 font-medium'
                   : 'text-gray-700 hover:bg-gray-100'
               }`
             }
@@ -40,7 +48,7 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </nav>
-      <div className='mt-auto'>
+      <div className='mt-auto' style={{ fontFamily: 'Geist, sans-serif' }}>
         <NavLink
           to='#'
           className='flex items-center gap-3 px-4 py-2 mt-4rounded-lg'
