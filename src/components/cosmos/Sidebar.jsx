@@ -22,11 +22,12 @@ const Sidebar = () => {
   return (
     <aside className='w-64 bg-white h-full px-4 py-6 flex flex-col'>
       <h1
-        className='text-xl font-bold text-purple-600 mb-8'
-        style={{ fontFamily: 'Cabinet Grotesk, sans-serif' }}
+        className='text-xl font-bold mb-8'
+        style={{ fontFamily: 'Plus Jakarta, sans-serif' }}
       >
-        Cosmos
+        🚀 Cosmos
       </h1>
+      <p className=' text-gray-500 font-medium text-sm pb-3 px-2 uppercase' style={{ fontFamily: 'Poppins, sans-serif' }}>Overview</p>
       <nav
         className='flex flex-col gap-1'
         style={{ fontFamily: 'Geist, sans-serif' }}
@@ -36,10 +37,10 @@ const Sidebar = () => {
             key={name}
             to={path}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-2 rounded-lg transition-all duration-200 ${
+              `flex items-center gap-3 py-2 px-2 rounded-lg transition-all duration-200 ${
                 isActive
                   ? 'bg-purple-100 text-purple-700 font-medium'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  : 'text-black hover:bg-gray-100'
               }`
             }
           >
