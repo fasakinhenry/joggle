@@ -10,9 +10,11 @@ import {
   CheckCircle,
   Users,
   Award,
-  Rocket,
-  Moon,
-  Globe,
+  BookOpen,
+  Target,
+  TrendingUp,
+  Calendar,
+  ArrowRight,
 } from 'lucide-react';
 
 const Launchpad = () => {
@@ -20,271 +22,330 @@ const Launchpad = () => {
 
   const banners = [
     {
-      title: 'Welcome to Your Learning Journey',
+      title: 'Your ALX Learning Journey Starts Here',
       subtitle: 'Track your progress, achieve your goals',
-      bg: 'bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700',
-      image: '🚀',
+      cta: 'Start Learning',
+      stats: '2,500+ Active Learners',
     },
     {
-      title: 'Unlock Premium Features',
-      subtitle: 'Get 12 months of premium access for just $49',
-      bg: 'bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700',
-      image: '✨',
+      title: 'Upgrade to All Access Plus',
+      subtitle:
+        'Get 12 months of premium programs access for just $49 - saving you $111',
+      cta: 'Unlock Now',
+      stats: 'Premium Benefits',
     },
     {
-      title: 'Join Our Community',
-      subtitle: 'Connect with fellow learners worldwide',
-      bg: 'bg-gradient-to-r from-rose-600 via-pink-600 to-purple-700',
-      image: '🌍',
+      title: 'Join Our Global Community',
+      subtitle: 'Connect with fellow learners and industry experts worldwide',
+      cta: 'Connect Now',
+      stats: '50+ Countries',
     },
   ];
 
   const ongoingCourses = [
     {
       title: 'Back-End Web Development',
-      description: 'Python, SQL, Django',
+      description:
+        "Become a back-end pro and build powerful apps from the ground up. You'll learn how to program with Python and how to use data management tools like SQL.",
       duration: '12 Weeks',
       started: '30 Jun 2025',
       progress: 65,
-      status: 'active',
+      nextLesson: 'Django Models & Database Design',
     },
     {
       title: 'Professional Foundations',
-      description: 'Soft skills and professional development',
+      description:
+        'Learn key leadership and professional skills that will help you navigate and succeed in the workplace.',
       duration: '8 Weeks',
       started: '15 Jul 2025',
       progress: 30,
-      status: 'active',
+      nextLesson: 'Effective Communication Strategies',
     },
   ];
 
   const completedCourses = [
     {
-      title: 'Frontend Fundamentals',
-      description: 'HTML, CSS, JavaScript',
+      title: 'Frontend Web Development',
+      description: 'HTML, CSS, JavaScript fundamentals',
       completedDate: '22 Jun 2025',
       grade: 'A+',
+      certificate: true,
     },
     {
       title: 'Git & Version Control',
-      description: 'Essential development tools',
+      description: 'Essential development workflow tools',
       completedDate: '15 Jun 2025',
       grade: 'A',
+      certificate: true,
     },
   ];
 
   const recommendedPrograms = [
     {
-      title: 'Founder Academy - 6 Weeks',
-      description: 'Learn to build and scale startups',
+      title: 'Founder Academy – 6 weeks online',
+      description:
+        'This program is best suited for aspiring entrepreneurs looking to build their first company.',
       startDate: '14 Jul 2025',
       duration: '6 weeks',
       instructor: 'Sarah Johnson',
-      image: '👨‍💼',
+      spots: '12 spots left',
     },
     {
-      title: 'Freelancer Academy - 2 Weeks',
-      description: 'Master the art of freelancing',
+      title: 'Freelancer Academy – 2 weeks online',
+      description:
+        'This program was created for talented, skilled professionals looking to transition into freelancing.',
       startDate: '21 Jul 2025',
       duration: '2 weeks',
       instructor: 'Mike Chen',
-      image: '💼',
+      spots: '8 spots left',
     },
     {
       title: 'Data Science Bootcamp',
-      description: 'Analytics and machine learning',
+      description:
+        'Master data analysis, machine learning, and statistical modeling for modern applications.',
       startDate: '28 Jul 2025',
-      duration: '12 weeks',
+      duration: '16 weeks',
       instructor: 'Dr. Lisa Park',
-      image: '📊',
+      spots: '5 spots left',
     },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % banners.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <div className='min-h-screen bg-gray-50'>
-      {/* Top Navigation */}
-      <nav className='bg-white shadow-sm border-b px-6 py-4'>
-        <div className='max-w-7xl mx-auto flex items-center justify-between'>
-          <div className='flex items-center space-x-2'>
-            <Rocket className='h-8 w-8 text-blue-600' />
-            <span className='text-2xl font-bold text-gray-800'>Launchpad</span>
-          </div>
-
-          <div className='flex items-center space-x-4'>
-            <span className='text-sm text-yellow-600 font-medium'>
-              2395 points
-            </span>
-            <Bell className='h-6 w-6 text-gray-600 cursor-pointer hover:text-blue-600' />
-            <div className='flex items-center space-x-2 bg-gray-100 rounded-full px-3 py-1'>
-              <User className='h-5 w-5 text-gray-600' />
-              <span className='text-sm font-medium text-gray-700'>Henry</span>
+      {/* Header */}
+      <header className='bg-white border-b border-gray-200'>
+        <div className='max-w-7xl mx-auto px-6 py-4'>
+          <div className='flex items-center justify-between'>
+            <div className='flex items-center'>
+              <div className='w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3'>
+                <span className='text-white font-bold text-lg'>L</span>
+              </div>
+              <span className='text-2xl font-bold text-gray-900'>
+                Launchpad
+              </span>
             </div>
-          </div>
-        </div>
-      </nav>
 
-      {/* Hero Banner Slider */}
-      <div className='relative overflow-hidden'>
-        <div
-          className='flex transition-transform duration-500 ease-in-out'
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {banners.map((banner, index) => (
-            <div
-              key={index}
-              className={`w-full flex-shrink-0 ${banner.bg} text-white py-16 px-6`}
-            >
-              <div className='max-w-6xl mx-auto text-center'>
-                <div className='text-6xl mb-4'>{banner.image}</div>
-                <h1 className='text-4xl md:text-5xl font-bold mb-4'>
-                  {banner.title}
-                </h1>
-                <p className='text-xl mb-8 opacity-90'>{banner.subtitle}</p>
-                <button className='bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors'>
-                  Get Started
-                </button>
+            <div className='flex items-center space-x-6'>
+              <div className='flex items-center space-x-1'>
+                <Star className='h-4 w-4 text-yellow-500' />
+                <span className='text-sm font-medium text-gray-700'>
+                  2395 points
+                </span>
+              </div>
+              <Bell className='h-5 w-5 text-gray-500 cursor-pointer hover:text-blue-600' />
+              <div className='flex items-center space-x-2'>
+                <div className='w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center'>
+                  <User className='h-4 w-4 text-blue-600' />
+                </div>
+                <span className='text-sm font-medium text-gray-700'>Henry</span>
               </div>
             </div>
-          ))}
+          </div>
         </div>
+      </header>
 
-        {/* Slider Navigation */}
-        <button
-          onClick={() =>
-            setCurrentSlide(
-              (prev) => (prev - 1 + banners.length) % banners.length
-            )
-          }
-          className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white'
-        >
-          <ChevronLeft className='h-6 w-6' />
-        </button>
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % banners.length)}
-          className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white'
-        >
-          <ChevronRight className='h-6 w-6' />
-        </button>
+      {/* Hero Banner */}
+      <div className='bg-blue-600 text-white relative overflow-hidden'>
+        <div className='absolute inset-0 bg-blue-700 opacity-10'></div>
+        <div className='relative max-w-7xl mx-auto px-6 py-16'>
+          <div className='max-w-3xl'>
+            <h1 className='text-5xl font-bold mb-4 leading-tight'>
+              {banners[currentSlide].title}
+            </h1>
+            <p className='text-xl mb-8 opacity-90'>
+              {banners[currentSlide].subtitle}
+            </p>
+            <div className='flex items-center space-x-6'>
+              <button className='bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors'>
+                {banners[currentSlide].cta}
+              </button>
+              <span className='text-sm opacity-75'>
+                {banners[currentSlide].stats}
+              </span>
+            </div>
+          </div>
 
-        {/* Slide Indicators */}
-        <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'>
-          {banners.map((_, index) => (
+          {/* Slide Navigation */}
+          <div className='absolute bottom-6 right-6 flex items-center space-x-4'>
             <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
-              }`}
-            />
-          ))}
+              onClick={() =>
+                setCurrentSlide(
+                  (prev) => (prev - 1 + banners.length) % banners.length
+                )
+              }
+              className='w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors'
+            >
+              <ChevronLeft className='h-5 w-5' />
+            </button>
+            <div className='flex space-x-2'>
+              {banners.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentSlide ? 'bg-white' : 'bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={() =>
+                setCurrentSlide((prev) => (prev + 1) % banners.length)
+              }
+              className='w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors'
+            >
+              <ChevronRight className='h-5 w-5' />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Welcome Section */}
-      <div className='max-w-6xl mx-auto px-6 py-8'>
-        <div className='bg-white rounded-2xl shadow-sm p-8 mb-8'>
-          <h2 className='text-3xl font-bold text-gray-800 mb-4'>
-            Welcome back, Henry! 👋
+      <div className='max-w-7xl mx-auto px-6 py-12'>
+        {/* Welcome Section */}
+        <div className='bg-white rounded-xl border border-gray-200 p-8 mb-12'>
+          <h2 className='text-3xl font-bold text-gray-900 mb-4'>
+            Welcome back, Henry!
           </h2>
-          <p className='text-gray-600 mb-6'>
-            Let's turn those lessons into action. Complete your profile to
-            unlock more features.
+          <p className='text-gray-600 mb-8 text-lg'>
+            Let's turn those lessons into action. Complete your profile to start
+            earning legacy points and get personalized recommendations.
           </p>
 
-          <div className='flex flex-col md:flex-row items-center justify-between'>
-            <div className='flex-1 mb-4 md:mb-0 md:mr-8'>
-              <div className='flex items-center justify-between mb-2'>
-                <span className='text-sm font-medium text-gray-700'>
+          <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between'>
+            <div className='flex-1 mb-6 lg:mb-0 lg:mr-12'>
+              <div className='flex items-center justify-between mb-3'>
+                <span className='text-sm font-medium text-gray-900'>
                   Profile Completion
                 </span>
-                <span className='text-sm font-medium text-blue-600'>75%</span>
+                <span className='text-sm font-bold text-blue-600'>75%</span>
               </div>
-              <div className='w-full bg-gray-200 rounded-full h-3'>
+              <div className='w-full bg-gray-200 rounded-full h-2'>
                 <div
-                  className='bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-500'
+                  className='bg-blue-600 h-2 rounded-full transition-all duration-700'
                   style={{ width: '75%' }}
                 />
               </div>
+              <p className='text-xs text-gray-500 mt-2'>
+                3 of 4 sections completed
+              </p>
             </div>
-            <button className='bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all'>
+            <button className='bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors'>
               Complete Profile
             </button>
           </div>
         </div>
 
-        {/* Ongoing Courses */}
-        <div className='mb-12'>
-          <h3 className='text-2xl font-bold text-gray-800 mb-6 flex items-center'>
-            <Play className='h-6 w-6 mr-2 text-blue-600' />
-            Ongoing Courses
-          </h3>
-          <div className='grid md:grid-cols-2 gap-6'>
+        {/* Current Programs */}
+        <div className='mb-16'>
+          <div className='flex items-center justify-between mb-8'>
+            <h3 className='text-2xl font-bold text-gray-900'>
+              Current Programs
+            </h3>
+            <button className='text-blue-600 hover:text-blue-700 font-medium flex items-center'>
+              View More <ArrowRight className='h-4 w-4 ml-1' />
+            </button>
+          </div>
+
+          <div className='space-y-6'>
             {ongoingCourses.map((course, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow'
+                className='bg-white rounded-xl border border-gray-200 p-6'
               >
-                <h4 className='text-xl font-semibold text-gray-800 mb-2'>
-                  {course.title}
-                </h4>
-                <p className='text-gray-600 mb-4'>{course.description}</p>
-                <div className='flex items-center text-sm text-gray-500 mb-4'>
-                  <Clock className='h-4 w-4 mr-1' />
-                  {course.duration} • Started: {course.started}
-                </div>
-                <div className='mb-4'>
-                  <div className='flex items-center justify-between mb-2'>
-                    <span className='text-sm font-medium text-gray-700'>
-                      Progress
-                    </span>
-                    <span className='text-sm font-medium text-green-600'>
-                      {course.progress}%
-                    </span>
+                <div className='flex items-start justify-between mb-4'>
+                  <div className='flex-1'>
+                    <h4 className='text-xl font-bold text-gray-900 mb-2'>
+                      {course.title}
+                    </h4>
+                    <p className='text-gray-600 mb-4 leading-relaxed'>
+                      {course.description}
+                    </p>
+                    <div className='flex items-center space-x-6 text-sm text-gray-500'>
+                      <div className='flex items-center'>
+                        <Clock className='h-4 w-4 mr-1' />
+                        {course.duration}
+                      </div>
+                      <div className='flex items-center'>
+                        <Calendar className='h-4 w-4 mr-1' />
+                        Started: {course.started}
+                      </div>
+                    </div>
                   </div>
+                  <div className='ml-6 text-right'>
+                    <div className='text-2xl font-bold text-blue-600 mb-1'>
+                      {course.progress}%
+                    </div>
+                    <div className='text-sm text-gray-500'>Complete</div>
+                  </div>
+                </div>
+
+                <div className='mb-4'>
                   <div className='w-full bg-gray-200 rounded-full h-2'>
                     <div
-                      className='bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full'
+                      className='bg-blue-600 h-2 rounded-full transition-all duration-700'
                       style={{ width: `${course.progress}%` }}
                     />
                   </div>
                 </div>
-                <button className='w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors'>
-                  Continue Learning
-                </button>
+
+                <div className='flex items-center justify-between'>
+                  <div>
+                    <div className='text-sm font-medium text-gray-900'>
+                      Next: {course.nextLesson}
+                    </div>
+                  </div>
+                  <button className='bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors'>
+                    Continue
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Completed Courses */}
-        <div className='mb-12'>
-          <h3 className='text-2xl font-bold text-gray-800 mb-6 flex items-center'>
-            <CheckCircle className='h-6 w-6 mr-2 text-green-600' />
+        <div className='mb-16'>
+          <h3 className='text-2xl font-bold text-gray-900 mb-8'>
             Completed Courses
           </h3>
           <div className='grid md:grid-cols-2 gap-6'>
             {completedCourses.map((course, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-green-500'
+                className='bg-white rounded-xl border border-gray-200 p-6'
               >
-                <h4 className='text-xl font-semibold text-gray-800 mb-2'>
-                  {course.title}
-                </h4>
-                <p className='text-gray-600 mb-4'>{course.description}</p>
-                <div className='flex items-center justify-between'>
-                  <span className='text-sm text-gray-500'>
-                    Completed: {course.completedDate}
-                  </span>
-                  <span className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium'>
-                    Grade: {course.grade}
+                <div className='flex items-start justify-between mb-4'>
+                  <div className='flex-1'>
+                    <h4 className='text-lg font-bold text-gray-900 mb-2'>
+                      {course.title}
+                    </h4>
+                    <p className='text-gray-600 mb-4'>{course.description}</p>
+                    <div className='text-sm text-gray-500'>
+                      Completed: {course.completedDate}
+                    </div>
+                  </div>
+                  <div className='ml-4 text-right'>
+                    <div className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-2'>
+                      {course.grade}
+                    </div>
+                    {course.certificate && (
+                      <div className='text-xs text-blue-600'>
+                        Certificate earned
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className='flex items-center'>
+                  <CheckCircle className='h-5 w-5 text-green-500 mr-2' />
+                  <span className='text-sm text-green-700 font-medium'>
+                    Completed
                   </span>
                 </div>
               </div>
@@ -293,147 +354,198 @@ const Launchpad = () => {
         </div>
 
         {/* Recommended Programs */}
-        <div className='mb-12'>
-          <h3 className='text-2xl font-bold text-gray-800 mb-6 flex items-center'>
-            <Star className='h-6 w-6 mr-2 text-yellow-500' />
+        <div className='mb-16'>
+          <h3 className='text-2xl font-bold text-gray-900 mb-8'>
             Recommended Programs
           </h3>
-          <div className='grid md:grid-cols-3 gap-6'>
+          <div className='grid lg:grid-cols-3 gap-6'>
             {recommendedPrograms.map((program, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow'
+                className='bg-white rounded-xl border border-gray-200 p-6'
               >
-                <div className='text-4xl mb-4'>{program.image}</div>
-                <h4 className='text-lg font-semibold text-gray-800 mb-2'>
+                <h4 className='text-lg font-bold text-gray-900 mb-3'>
                   {program.title}
                 </h4>
-                <p className='text-gray-600 mb-4'>{program.description}</p>
-                <div className='space-y-2 mb-4'>
-                  <div className='flex items-center text-sm text-gray-500'>
-                    <Clock className='h-4 w-4 mr-1' />
-                    {program.duration}
+                <p className='text-gray-600 mb-6 leading-relaxed'>
+                  {program.description}
+                </p>
+
+                <div className='space-y-2 mb-6'>
+                  <div className='flex items-center justify-between text-sm'>
+                    <span className='text-gray-500'>Start Date:</span>
+                    <span className='font-medium text-gray-900'>
+                      {program.startDate}
+                    </span>
                   </div>
-                  <div className='flex items-center text-sm text-gray-500'>
-                    <Users className='h-4 w-4 mr-1' />
-                    {program.instructor}
+                  <div className='flex items-center justify-between text-sm'>
+                    <span className='text-gray-500'>Duration:</span>
+                    <span className='font-medium text-gray-900'>
+                      {program.duration}
+                    </span>
+                  </div>
+                  <div className='flex items-center justify-between text-sm'>
+                    <span className='text-gray-500'>Instructor:</span>
+                    <span className='font-medium text-gray-900'>
+                      {program.instructor}
+                    </span>
                   </div>
                 </div>
-                <p className='text-sm text-blue-600 mb-4'>
-                  Start: {program.startDate}
-                </p>
-                <button className='w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-2 rounded-lg font-medium hover:from-green-700 hover:to-emerald-700 transition-all'>
-                  Enroll Now
-                </button>
+
+                <div className='flex items-center justify-between'>
+                  <span className='text-sm text-orange-600 font-medium'>
+                    {program.spots}
+                  </span>
+                  <button className='bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors'>
+                    Enroll Now
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Action Cards */}
-        <div className='grid md:grid-cols-3 gap-6 mb-12'>
-          <div className='bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-xl'>
-            <Play className='h-8 w-8 mb-4' />
-            <h4 className='text-xl font-semibold mb-2'>Start Learning</h4>
-            <p className='opacity-90'>
-              Access your programs and stay on track with your learning journey.
+        {/* Explore Section */}
+        <div className='grid md:grid-cols-3 gap-6 mb-16'>
+          <div className='bg-white rounded-xl border border-gray-200 p-8 text-center'>
+            <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+              <BookOpen className='h-8 w-8 text-blue-600' />
+            </div>
+            <h4 className='text-xl font-bold text-gray-900 mb-3'>
+              Start Learning
+            </h4>
+            <p className='text-gray-600'>
+              Access your programs and stay on track with your learning journey
+              here.
             </p>
           </div>
-          <div className='bg-gradient-to-br from-purple-500 to-pink-600 text-white p-6 rounded-xl'>
-            <Users className='h-8 w-8 mb-4' />
-            <h4 className='text-xl font-semibold mb-2'>Connect to Community</h4>
-            <p className='opacity-90'>
-              Collaborate with fellow learners and get support when you need it.
+
+          <div className='bg-white rounded-xl border border-gray-200 p-8 text-center'>
+            <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+              <Users className='h-8 w-8 text-blue-600' />
+            </div>
+            <h4 className='text-xl font-bold text-gray-900 mb-3'>
+              Connect to Community
+            </h4>
+            <p className='text-gray-600'>
+              Collaborate with fellow learners to get support and celebrate
+              successes.
             </p>
           </div>
-          <div className='bg-gradient-to-br from-green-500 to-emerald-600 text-white p-6 rounded-xl'>
-            <Award className='h-8 w-8 mb-4' />
-            <h4 className='text-xl font-semibold mb-2'>Earn Rewards</h4>
-            <p className='opacity-90'>
-              Collect points and redeem them for exclusive benefits and prizes.
+
+          <div className='bg-white rounded-xl border border-gray-200 p-8 text-center'>
+            <div className='w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+              <Award className='h-8 w-8 text-blue-600' />
+            </div>
+            <h4 className='text-xl font-bold text-gray-900 mb-3'>
+              Earn Rewards
+            </h4>
+            <p className='text-gray-600'>
+              Check how many Legacy Points you have earned and how you can
+              redeem them.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Space-themed Footer */}
-      <footer className='bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 text-white relative overflow-hidden'>
-        <div className='absolute inset-0 bg-black/20'></div>
-        <div className='absolute inset-0'>
-          <div className='absolute top-10 left-20 w-2 h-2 bg-white rounded-full animate-pulse'></div>
-          <div className='absolute top-20 right-32 w-1 h-1 bg-white rounded-full animate-pulse'></div>
-          <div className='absolute bottom-32 left-40 w-1 h-1 bg-white rounded-full animate-pulse'></div>
-          <div className='absolute bottom-20 right-20 w-2 h-2 bg-white rounded-full animate-pulse'></div>
-          <div className='absolute top-40 left-1/3 w-1 h-1 bg-white rounded-full animate-pulse'></div>
-          <div className='absolute bottom-40 right-1/3 w-1 h-1 bg-white rounded-full animate-pulse'></div>
-        </div>
-
-        <div className='relative max-w-6xl mx-auto px-6 py-16'>
-          <div className='text-center mb-12'>
-            <div className='flex items-center justify-center mb-4'>
-              <Rocket className='h-12 w-12 mr-4' />
-              <span className='text-3xl font-bold'>Launchpad</span>
+      {/* Footer */}
+      <footer className='bg-gray-900 text-white'>
+        <div className='max-w-7xl mx-auto px-6 py-12'>
+          <div className='grid md:grid-cols-5 gap-8 mb-8'>
+            <div className='md:col-span-2'>
+              <div className='flex items-center mb-4'>
+                <div className='w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center mr-3'>
+                  <span className='text-white font-bold'>L</span>
+                </div>
+                <span className='text-xl font-bold'>Launchpad</span>
+              </div>
+              <p className='text-gray-400 mb-4'>
+                The community of those who Do Hard Things
+              </p>
             </div>
-            <p className='text-xl opacity-90'>
-              The community of those who Do Hard Things
-            </p>
+
+            <div>
+              <h5 className='font-semibold mb-4'>Learning</h5>
+              <ul className='space-y-2 text-sm text-gray-400'>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Programs
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Courses
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Resources
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 className='font-semibold mb-4'>Community</h5>
+              <ul className='space-y-2 text-sm text-gray-400'>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Forums
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Study Groups
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Mentorship
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 className='font-semibold mb-4'>Support</h5>
+              <ul className='space-y-2 text-sm text-gray-400'>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href='#' className='hover:text-white'>
+                    Terms
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div className='grid md:grid-cols-4 gap-8 mb-12'>
-            <div>
-              <h5 className='font-semibold mb-4 flex items-center'>
-                <Globe className='h-5 w-5 mr-2' />
-                Learning
-              </h5>
-              <ul className='space-y-2 text-sm opacity-80'>
-                <li>Courses</li>
-                <li>Programs</li>
-                <li>Certifications</li>
-                <li>Resources</li>
-              </ul>
-            </div>
-            <div>
-              <h5 className='font-semibold mb-4 flex items-center'>
-                <Users className='h-5 w-5 mr-2' />
-                Community
-              </h5>
-              <ul className='space-y-2 text-sm opacity-80'>
-                <li>Forums</li>
-                <li>Study Groups</li>
-                <li>Events</li>
-                <li>Mentorship</li>
-              </ul>
-            </div>
-            <div>
-              <h5 className='font-semibold mb-4 flex items-center'>
-                <Award className='h-5 w-5 mr-2' />
-                Rewards
-              </h5>
-              <ul className='space-y-2 text-sm opacity-80'>
-                <li>Points System</li>
-                <li>Achievements</li>
-                <li>Leaderboards</li>
-                <li>Prizes</li>
-              </ul>
-            </div>
-            <div>
-              <h5 className='font-semibold mb-4 flex items-center'>
-                <Moon className='h-5 w-5 mr-2' />
-                Support
-              </h5>
-              <ul className='space-y-2 text-sm opacity-80'>
-                <li>Help Center</li>
-                <li>Contact Us</li>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className='border-t border-white/20 pt-8 text-center'>
-            <p className='text-sm opacity-75'>
+          <div className='border-t border-gray-800 pt-8 text-center'>
+            <p className='text-sm text-gray-400'>
               &copy; {new Date().getFullYear()} Launchpad. All rights reserved.
-              <span className='ml-4'>🚀 Launching dreams into reality</span>
             </p>
           </div>
         </div>
