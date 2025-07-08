@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/cosmos/Sidebar';
 import Topbar from '../components/cosmos/Topbar';

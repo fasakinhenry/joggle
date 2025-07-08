@@ -8,7 +8,7 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import Landing from './pages/Landing';
 
-// Import Cosmos components
+// Cosmos Portal
 import Dashboard from './pages/cosmos/Dashboard';
 import Lesson from './pages/cosmos/Lesson';
 import Task from './pages/cosmos/Task';
@@ -16,6 +16,9 @@ import Inbox from './pages/cosmos/Inbox';
 import Group from './pages/cosmos/Group';
 import Settings from './pages/cosmos/Settings';
 import DashboardLayout from './layout/DashboardLayout';
+
+// Launchpad (Hub)
+import Launchpad from './pages/Launchpad';
 
 function App() {
   return (
@@ -35,8 +38,11 @@ function App() {
           <Route path='settings' element={<Settings />} />
         </Route>
 
-        {/* Redirect unknown routes to dashboard */}
-        <Route path='*' element={<Navigate to='/cosmos' replace />} />
+        {/* Launchpad Route */}
+        <Route path='/launchpad' element={<Launchpad />} />
+
+        {/* Catch-all */}
+        <Route path='*' element={<Navigate to='/launchpad' replace />} />
       </Routes>
     </Router>
   );
