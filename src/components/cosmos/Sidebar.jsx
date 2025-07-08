@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 
 const navItems = [
-  { name: 'Dashboard', icon: Home, path: '/cosmos' },
+  { name: 'Dashboard', icon: Home, path: '/cosmos/dashboard' },
   { name: 'Inbox', icon: Inbox, path: '/cosmos/inbox' },
   { name: 'Lesson', icon: BookOpen, path: '/cosmos/lessons' },
   { name: 'Task', icon: Calendar, path: '/cosmos/tasks' },
@@ -30,7 +30,6 @@ const Sidebar = () => {
       <p className=' text-gray-500 font-medium text-sm pb-3 px-2 uppercase' style={{ fontFamily: 'Poppins, sans-serif' }}>Overview</p>
       <nav
         className='flex flex-col gap-1'
-        style={{ fontFamily: 'Geist, sans-serif' }}
       >
         {navItems.map(({ name, icon: Icon, path }) => (
           <NavLink

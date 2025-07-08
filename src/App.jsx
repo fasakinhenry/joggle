@@ -1,8 +1,7 @@
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
+  Route
 } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
@@ -20,6 +19,9 @@ import DashboardLayout from './layout/DashboardLayout';
 // Launchpad (Hub)
 import Launchpad from './pages/Launchpad';
 
+// 404 Not Found Page
+import NotFound from './pages/NotFound';
+
 function App() {
   return (
     <Router>
@@ -31,6 +33,7 @@ function App() {
         {/* Cosmos Portal Routes */}
         <Route path='/cosmos' element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
+          <Route path='dashboard' element={<Dashboard />} />
           <Route path='tasks' element={<Task />} />
           <Route path='inbox' element={<Inbox />} />
           <Route path='lessons' element={<Lesson />} />
@@ -42,7 +45,7 @@ function App() {
         <Route path='/launchpad' element={<Launchpad />} />
 
         {/* Catch-all */}
-        <Route path='*' element={<Navigate to='/launchpad' replace />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
   );
