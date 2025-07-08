@@ -278,7 +278,7 @@ const Launchpad = () => {
               {banners[currentSlide].subtitle}
             </p>
             <div className='flex items-center space-x-6'>
-              <button className='bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors'>
+              <button className='bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors'>
                 {banners[currentSlide].cta}
               </button>
               <span className='text-sm opacity-90'>
