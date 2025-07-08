@@ -76,10 +76,7 @@ const SignUp = () => {
       <div className='mb-6'>
         <div className='flex items-center gap-4 mb-4'>
           <div className='flex-1 border-t border-gray-200'></div>
-          <span
-            className='text-sm text-gray-600 whitespace-nowrap'
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >
+          <span className='text-sm text-gray-600 whitespace-nowrap'>
             Social sign in options
           </span>
           <div className='flex-1 border-t border-gray-200'></div>
@@ -145,10 +142,7 @@ const SignUp = () => {
       <div className='mb-4'>
         <div className='flex items-center gap-4 mb-4'>
           <div className='flex-1 border-t border-gray-300'></div>
-          <span
-            className='text-sm text-gray-600 whitespace-nowrap'
-            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >
+          <span className='text-sm text-gray-600 whitespace-nowrap'>
             Manual sign in
           </span>
           <div className='flex-1 border-t border-gray-300'></div>
@@ -160,7 +154,6 @@ const SignUp = () => {
             <label
               htmlFor='firstName'
               className='block text-sm font-medium text-gray-700 mb-1'
-              style={{ fontFamily: 'Geist, sans-serif' }}
             >
               First Name <span className='text-red-500'>*</span>
             </label>
@@ -176,7 +169,6 @@ const SignUp = () => {
                 className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.firstName ? 'border-red-500' : 'border-gray-300'
                 }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
               />
             </div>
             {errors.firstName && (
@@ -189,7 +181,6 @@ const SignUp = () => {
             <label
               htmlFor='lastName'
               className='block text-sm font-medium text-gray-700 mb-1'
-              style={{ fontFamily: 'Geist, sans-serif' }}
             >
               Last Name <span className='text-red-500'>*</span>
             </label>
@@ -205,7 +196,6 @@ const SignUp = () => {
                 className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.lastName ? 'border-red-500' : 'border-gray-300'
                 }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
               />
             </div>
             {errors.lastName && (
@@ -218,7 +208,6 @@ const SignUp = () => {
             <label
               htmlFor='email'
               className='block text-sm font-medium text-gray-700 mb-1'
-              style={{ fontFamily: 'Geist, sans-serif' }}
             >
               Email <span className='text-red-500'>*</span>
             </label>
@@ -234,7 +223,6 @@ const SignUp = () => {
                 className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
                 }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
               />
             </div>
             {errors.email && (
@@ -247,7 +235,6 @@ const SignUp = () => {
             <label
               htmlFor='password'
               className='block text-sm font-medium text-gray-700 mb-1'
-              style={{ fontFamily: 'Geist, sans-serif' }}
             >
               Password <span className='text-red-500'>*</span>
             </label>
@@ -263,7 +250,6 @@ const SignUp = () => {
                 className={`w-full pl-10 pr-12 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
                   errors.password ? 'border-red-500' : 'border-gray-300'
                 }`}
-                style={{ fontFamily: 'Geist, sans-serif' }}
               />
               <button
                 type='button'
@@ -277,10 +263,7 @@ const SignUp = () => {
                 )}
               </button>
             </div>
-            <p
-              className='text-xs text-gray-500 mt-1'
-              style={{ fontFamily: 'Geist, sans-serif' }}
-            >
+            <p className='text-[13px] text-gray-500 mt-3'>
               Must be at least 8 characters, contain uppercase, lowercase,
               numeric and symbol characters
             </p>
@@ -292,8 +275,8 @@ const SignUp = () => {
           {/* Submit Button */}
           <button
             type='submit'
-            className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
-            style={{ fontFamily: 'Geist, sans-serif' }}
+            onClick={() => window.location.href = '/launchpad'}
+            className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:ring-offset-0 transition-colors cursor-pointer outline-none'
           >
             Sign up
           </button>

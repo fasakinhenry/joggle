@@ -43,13 +43,11 @@ const AuthLayout = ({ children, title, subtitle, heroTitle, heroSubtitle }) => {
           <div className='max-w-md'>
             <h2
               className='text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight'
-              style={{ fontFamily: 'Cabinet Grotesk, sans-serif' }}
             >
               {heroTitle}
             </h2>
             <p
               className='text-lg lg:text-xl text-white/90 leading-relaxed'
-              style={{ fontFamily: 'Geist, sans-serif' }}
             >
               {heroSubtitle}
             </p>
@@ -87,7 +85,6 @@ const AuthLayout = ({ children, title, subtitle, heroTitle, heroSubtitle }) => {
             {subtitle && (
               <p
                 className='text-gray-600 text-lg'
-                style={{ fontFamily: 'Geist, sans-serif' }}
               >
                 {subtitle}
               </p>
