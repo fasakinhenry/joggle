@@ -44,21 +44,24 @@ const MainContent = () => {
       name: 'UI/UX Design',
       progress: '2/8 watched',
       color: 'bg-purple-100 text-purple-800',
+      icon: <Play className='w-5 h-5 text-purple-600' />,
     },
     {
       name: 'Branding',
       progress: '3/8 watched',
       color: 'bg-pink-100 text-pink-800',
+      icon: <Heart className='w-5 h-5 text-pink-600' />,
     },
     {
       name: 'Front End',
       progress: '4/7 watched',
       color: 'bg-blue-100 text-blue-800',
+      icon: <Play className='w-5 h-5 text-blue-600' />,
     },
   ];
 
   return (
-    <div className='flex-1 p-6 pt-0 pl-0 overflow-y-auto'>
+    <div className='flex-1 pr-6 pb-6 pt-0 pl-0 overflow-y-auto'>
       {/* Hero Section */}
       <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-8'>
         <div className='flex items-center justify-between'>
@@ -98,7 +101,7 @@ const MainContent = () => {
                 >
                   {category.name.toUpperCase()}
                 </span>
-                <button className='text-gray-400 hover:text-gray-600'>
+                <button className='text-gray-400 hover:text-gray-600 cursor-pointer'>
                   <svg
                     className='w-4 h-4'
                     fill='currentColor'
