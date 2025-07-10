@@ -17,7 +17,7 @@ const CurrentProjects = ({ projects }) => {
   };
 
   return (
-    <div className='bg-white rounded-2xl p-6 border border-gray-200'>
+    <div className='bg-white rounded-2xl p-6 border border-gray-200 mb-6'>
       <div className='flex items-center justify-between mb-6'>
         <h2 className='text-xl font-bold text-gray-900 flex items-center'>
           <Target className='w-5 h-5 mr-2 text-blue-500' />
