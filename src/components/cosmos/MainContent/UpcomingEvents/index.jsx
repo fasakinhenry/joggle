@@ -1,3 +1,4 @@
+import React from 'react';
 import { Calendar, Clock, Eye } from 'lucide-react';
 
 const UpcomingEvents = ({ events }) => {
