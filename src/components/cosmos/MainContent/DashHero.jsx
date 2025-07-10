@@ -6,9 +6,7 @@ const DashHero = () => (
       <div>
         <p className='text-sm font-medium mb-2 opacity-90'>ONLINE COURSE</p>
         <h1 className='text-3xl font-bold mb-4'>
-          Sharpen Your Skills with
-          <br />
-          Professional Online Courses
+          Sharpen Your Skills with Professional Online Courses
         </h1>
         <button className='bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center'>
           Join Now
