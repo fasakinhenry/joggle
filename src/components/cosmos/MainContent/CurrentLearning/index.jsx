@@ -24,7 +24,7 @@ const CurrentLearning = ({ learningItems }) => {
           Current Learning
         </h2>
         <div className='flex gap-3'>
-          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium hidden lg:inline-flex'>
+          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium hidden cursor-pointer lg:flex items-center'>
             View all
           </button>
           <div className='flex gap-2'>
@@ -57,6 +57,12 @@ const CurrentLearning = ({ learningItems }) => {
       ) : (
         <LearningDetailView learningItems={learningItems} />
       )}
+      {/* View all button for mobile */}
+      <div className='col-span-1 md:col-span-2 lg:col-span-3 text-center sm:inline-flex lg:hidden mt-4'>
+        <button className='w-full text-blue-600 hover:text-blue-700 text-sm font-medium cursor-pointer border border-blue-200 rounded-lg px-4 py-2 transition-colors'>
+          View all
+        </button>
+      </div>
     </div>
   );
 };

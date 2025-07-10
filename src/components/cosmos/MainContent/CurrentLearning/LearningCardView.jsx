@@ -64,12 +64,7 @@ const LearningCardView = ({ learningItems }) => (
         </div>
       </div>
     ))}
-    {/* View all button for mobile */}
-    <div className='col-span-1 md:col-span-2 lg:col-span-3 text-center sm:inline-flex lg:hidden'>
-      <button className='w-full text-blue-600 hover:text-blue-700 text-sm font-medium cursor-pointer border border-blue-200 rounded-lg px-4 py-2 transition-colors'>
-        View all
-      </button>
-    </div>
+    
   </div>
 );
 
