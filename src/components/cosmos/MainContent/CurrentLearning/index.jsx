@@ -24,7 +24,7 @@ const CurrentLearning = ({ learningItems }) => {
           Current Learning
         </h2>
         <div className='flex gap-3'>
-          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium sm:hidden lg:inline-flex'>
+          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium hidden lg:inline-flex'>
             View all
           </button>
           <div className='flex gap-2'>
