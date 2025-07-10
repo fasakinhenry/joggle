@@ -1,61 +1,52 @@
-import React from 'react';
-import { Calendar, Clock, Eye } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Calendar as CalendarIcon, LayoutGrid, List } from 'lucide-react';
+import EventCardView from './EventCardView';
+import EventDetailView from './EventDetailView';
 
 const UpcomingEvents = ({ events }) => {
-  const getEventTypeColor = (type) => {
-    switch (type) {
-      case 'Review':
-        return 'bg-purple-100 text-purple-800';
-      case 'Assessment':
-        return 'bg-orange-100 text-orange-800';
-      case 'Workshop':
-        return 'bg-green-100 text-green-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
+  const [viewMode, setViewMode] = useState('details');
+
+  useEffect(() => {
+    const stored = localStorage.getItem('eventView');
+    if (stored) setViewMode(stored);
+  }, []);
+
+  const toggleView = (mode) => {
+    setViewMode(mode);
+    localStorage.setItem('eventView', mode);
   };
 
   return (
-    <div className='bg-white rounded-2xl p-6 mb-8 border border-gray-200'>
+    <div className='bg-white rounded-2xl p-6 border border-gray-200'>
       <div className='flex items-center justify-between mb-6'>
         <h2 className='text-xl font-bold text-gray-900 flex items-center'>
-          <Calendar className='w-5 h-5 mr-2 text-green-500' />
+          <CalendarIcon className='w-5 h-5 mr-2 text-green-500' />
           Upcoming Events
         </h2>
-        <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>
-          View all
-        </button>
-      </div>
-      
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {events.map((event) => (
-          <div key={event.id} className='border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow'>
-            <div className='flex items-start justify-between mb-3'>
-              <div className='flex-1'>
-                <h3 className='font-medium text-gray-900 mb-2 text-sm'>{event.title}</h3>
-                <div className='flex items-center space-x-2 mb-3'>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getEventTypeColor(event.type)}`}>
-                    {event.type}
-                  </span>
-                </div>
-                <div className='space-y-1'>
-                  <div className='flex items-center text-sm text-gray-500'>
-                    <Calendar className='w-3 h-3 mr-1' />
-                    {event.date}
-                  </div>
-                  <div className='flex items-center text-sm text-gray-500'>
-                    <Clock className='w-3 h-3 mr-1' />
-                    {event.time}
-                  </div>
-                </div>
-              </div>
-              <button className='p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg'>
-                <Eye className='w-4 h-4' />
-              </button>
-            </div>
+        <div className='flex gap-3'>
+          <button className='text-blue-600 hover:text-blue-700 text-sm font-medium'>View all</button>
+          <div className='flex gap-2'>
+            <button
+              onClick={() => toggleView('cards')}
+              className={`p-1.5 rounded-md ${viewMode === 'cards' ? 'bg-gray-100 text-blue-600' : 'text-gray-400'}`}
+            >
+              <LayoutGrid className='w-4 h-4' />
+            </button>
+            <button
+              onClick={() => toggleView('details')}
+              className={`p-1.5 rounded-md ${viewMode === 'details' ? 'bg-gray-100 text-blue-600' : 'text-gray-400'}`}
+            >
+              <List className='w-4 h-4' />
+            </button>
           </div>
-        ))}
+        </div>
       </div>
+
+      {viewMode === 'details' ? (
+        <EventDetailView events={events} />
+      ) : (
+        <EventCardView events={events} />
+      )}
     </div>
   );
 };
