@@ -26,7 +26,7 @@ const ProjectDetailView = ({ projects }) => (
           <div className='flex items-start space-x-3'>
             {getStatusIcon(project.status)}
             <div>
-              <h3 className='font-medium text-gray-900 mb-1'>{project.title}</h3>
+              <h3 className='font-medium text-gray-900 mb-1 line-clamp-1'>{project.title}</h3>
               <div className='flex items-center space-x-2'>
                 <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
                   {project.status.replace('-', ' ')}
