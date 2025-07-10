@@ -1,6 +1,7 @@
 import { Menu, Bell, Mail, Search } from 'lucide-react';
 
 const Topbar = ({ onOpenMobileSidebar }) => {
+  const memojiNames = ['Jason', 'John', 'Doe', 'Jane', 'Smith', 'Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank', 'Grace', 'Hannah', 'Ivy', 'Jack', 'Kathy', 'Leo', 'Mia', 'Nina', 'Oscar', 'Paul', 'Quinn', 'Rita', 'Sam', 'Tina', 'Uma', 'Vera', 'Will', 'Xena', 'Yara', 'Zane', 'Zoe'];
   return (
     <header className='flex items-center justify-between px-4 sm:px-6 pt-4'>
       {/* Left Section */}
@@ -43,8 +44,10 @@ const Topbar = ({ onOpenMobileSidebar }) => {
 
         {/* Profile */}
         <div className='flex items-center gap-2'>
+          {/* Use Tapback API */}
+          {/* Get all names of memoji in an string array */}
           <img
-            src='https://api.dicebear.com/7.x/adventurer/svg?seed=Jason'
+            src={`https://www.tapback.co/api/avatar/emily?color=${Math.floor(Math.random() * 20)}`}
             className='h-10 w-10 rounded-full'
             alt='User avatar'
           />
