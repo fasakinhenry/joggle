@@ -19,7 +19,7 @@ const CurrentLearning = ({ learningItems }) => {
   };
 
   return (
-    <div className='bg-white rounded-2xl p-6 border border-gray-200'>
+    <div className='bg-white rounded-2xl p-6 mb-8 border border-gray-200'>
       <div className='flex items-center justify-between mb-6'>
         <h2 className='text-xl font-bold text-gray-900 flex items-center'>
           <BookOpen className='w-5 h-5 mr-2 text-purple-500' />
@@ -29,13 +29,10 @@ const CurrentLearning = ({ learningItems }) => {
           View all
         </button>
       </div>
-
-      <div className='space-y-4'>
+      
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {learningItems.map((item, index) => (
-          <div
-            key={index}
-            className='border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow'
-          >
+          <div key={index} className='border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow'>
             <div className='flex items-center justify-between mb-3'>
               <div className='flex items-center space-x-3'>
                 {item.progress === 100 ? (
@@ -44,30 +41,27 @@ const CurrentLearning = ({ learningItems }) => {
                   <Play className='w-5 h-5 text-blue-500' />
                 )}
                 <div>
-                  <h3 className='font-medium text-gray-900'>{item.name}</h3>
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(
-                      item.type
-                    )}`}
-                  >
+                  <h3 className='font-medium text-gray-900 text-sm mb-1'>{item.name}</h3>
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(item.type)}`}>
                     {item.type}
                   </span>
                 </div>
               </div>
-              <div className='text-right'>
-                <p className='text-sm font-medium text-gray-900'>
-                  {item.progress}%
-                </p>
-              </div>
             </div>
-
-            <div className='w-full bg-gray-200 rounded-full h-2'>
-              <div
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  item.progress === 100 ? 'bg-green-500' : 'bg-blue-500'
-                }`}
-                style={{ width: `${item.progress}%` }}
-              ></div>
+            
+            <div className='mb-2'>
+              <div className='flex justify-between items-center mb-1'>
+                <span className='text-xs text-gray-500'>Progress</span>
+                <span className='text-xs font-medium text-gray-900'>{item.progress}%</span>
+              </div>
+              <div className='w-full bg-gray-200 rounded-full h-2'>
+                <div 
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    item.progress === 100 ? 'bg-green-500' : 'bg-blue-500'
+                  }`}
+                  style={{ width: `${item.progress}%` }}
+                ></div>
+              </div>
             </div>
           </div>
         ))}

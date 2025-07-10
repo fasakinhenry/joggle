@@ -63,7 +63,7 @@ const ContinueWatching = ({ courses }) => {
               </div>
               {course.progress > 0 && (
                 <div className='w-full bg-gray-200 rounded-full h-2'>
-                  <div 
+                  <div
                     className='h-2 bg-blue-500 rounded-full transition-all duration-300'
                     style={{ width: `${course.progress}%` }}
                   ></div>
