@@ -350,7 +350,8 @@ export const lessonsData = {
         { id: 4, title: 'Payment integration', completed: false },
         { id: 5, title: 'Testing and deployment', completed: false }
       ],
-      instructor: 'Sarah Johnson'
+      instructor: 'Sarah Johnson',
+      level: 'explorer'
     },
     {
       id: 'proj-002',

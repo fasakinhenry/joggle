@@ -26,19 +26,23 @@ import { lessonsData } from './mockData';
 const LessonDetail = ({ lesson, isCompleted = false }) => (
   <div
     className='
-      flex flex-col md:flex-row items-start md:items-center justify-between
+      flex flex-col md:flex-row justify-between
       p-4 bg-white rounded-lg border border-gray-100
       hover:bg-gray-50 hover:border-blue-100 transition-colors group
-      shadow-sm cursor-pointer
+      shadow-sm cursor-pointer gap-4
     '
   >
-    {/* Left: Status + Main Info */}
-    <div className='flex items-start gap-4 flex-1 min-w-0'>
+    {/* Left Section */}
+    <div className='flex gap-4 items-start flex-1 min-w-0'>
+      {/* Status Icon */}
       <div className='flex-shrink-0 mt-1'>
         {getStatusIcon(lesson.status, lesson.progress)}
       </div>
-      <div className='min-w-0'>
-        <div className='flex items-center gap-2 flex-wrap'>
+
+      {/* Info */}
+      <div className='min-w-0 w-full'>
+        {/* ID + Title */}
+        <div className='flex items-center gap-2 flex-wrap mb-1'>
           <span className='text-xs font-semibold text-red-600 truncate max-w-[60px]'>
             {lesson.id}
           </span>
@@ -49,43 +53,42 @@ const LessonDetail = ({ lesson, isCompleted = false }) => (
             {lesson.title}
           </h4>
         </div>
-        <div className='flex items-center gap-2 mt-1 flex-wrap'>
-          <span className='text-xs text-gray-500 truncate max-w-[120px]'>
-            {isCompleted ? lesson.completedDate : lesson.dueDate}
-          </span>
-          <span className='hidden sm:inline text-xs text-gray-400'>|</span>
-          <span className='text-xs text-gray-500 truncate max-w-[80px]'>
-            {lesson.instructor}
-          </span>
-          <span className='hidden sm:inline text-xs text-gray-400'>|</span>
-          <span className='text-xs text-gray-500 truncate max-w-[80px]'>
-            {lesson.category}
-          </span>
+
+        {/* Meta info */}
+        <div className='flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500 mb-1'>
+          <span>{isCompleted ? lesson.completedDate : lesson.dueDate}</span>
+          <span className='hidden sm:inline text-gray-400'>|</span>
+          <span>{lesson.instructor}</span>
+          <span className='hidden sm:inline text-gray-400'>|</span>
+          <span>{lesson.category}</span>
         </div>
+
+        {/* Description */}
         <p
-          className='text-xs text-gray-500 mt-1 truncate max-w-[220px] md:max-w-sm'
+          className='text-xs text-gray-500 truncate max-w-full md:max-w-sm mb-2'
           title={lesson.description}
         >
           {lesson.description}
         </p>
-        <div className='flex items-center gap-2 mt-2 flex-wrap'>
-          <span className='text-xs text-gray-400'>
-            Duration: {lesson.duration} mins
-          </span>
-          <span className='hidden sm:inline text-xs text-gray-300'>|</span>
-          <span className='text-xs text-gray-400'>Level: {lesson.level}</span>
+
+        {/* Duration + Level */}
+        <div className='flex flex-wrap items-center gap-2 text-xs text-gray-400'>
+          <span>Duration: {lesson.duration} mins</span>
+          <span className='hidden sm:inline text-gray-300'>|</span>
+          <span>Level: {lesson.level}</span>
         </div>
       </div>
     </div>
 
-    {/* Right: Progress & Tasks */}
-    <div className='flex flex-col md:flex-row items-end md:items-center gap-4 mt-4 md:mt-0 w-full md:w-auto'>
-      <div className='flex flex-col items-end min-w-[70px]'>
+    {/* Right Section: Progress + Tasks */}
+    <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full md:w-auto'>
+      {/* Tasks */}
+      <div className='flex flex-col items-start sm:items-end min-w-[70px]'>
         <span className='text-xs text-gray-500'>
           {lesson.tasks.filter((task) => task.completed).length}/
           {lesson.tasks.length} tasks
         </span>
-        <div className='flex gap-1 mt-1'>
+        <div className='flex gap-1 mt-1 flex-wrap'>
           {lesson.tasks.slice(0, 6).map((task, index) => (
             <div
               key={index}
@@ -100,11 +103,13 @@ const LessonDetail = ({ lesson, isCompleted = false }) => (
           )}
         </div>
       </div>
-      <div className='flex flex-col items-end min-w-[60px]'>
+
+      {/* Progress */}
+      <div className='flex flex-col items-start sm:items-end w-full sm:w-auto'>
         <span className={`text-lg font-bold ${getStatusColor(lesson.status)}`}>
           {lesson.progress}%
         </span>
-        <div className='w-24 h-2 bg-gray-200 rounded-full overflow-hidden mt-1'>
+        <div className='w-full sm:w-24 h-2 bg-gray-200 rounded-full overflow-hidden mt-1'>
           <div
             className={`h-full transition-all duration-300 rounded-full ${getProgressColor(
               lesson.progress
@@ -410,13 +415,15 @@ const Lesson = () => {
         {/* Ongoing Lessons */}
         {lessonsData.ongoingLessons.length > 0 && (
           <div className='mb-8'>
-            <div className='flex items-center gap-3 mb-6'>
-              <div className='w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center'>
-                <FileText className='w-5 h-5 text-blue-600' />
+            <div className='flex items-center gap-3 mb-6 justify-between'>
+              <div className='flex items-center gap-3'>
+                <div className='w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center'>
+                  <FileText className='w-5 h-5 text-blue-600' />
+                </div>
+                <h2 className='text-2xl font-semibold text-gray-900'>
+                  Ongoing Lessons
+                </h2>
               </div>
-              <h2 className='text-2xl font-semibold text-gray-900'>
-                Ongoing Lessons
-              </h2>
               <div className='flex bg-gray-100 rounded-lg p-1 ml-4'>
                 <button
                   onClick={() => setOngoingViewMode('detail')}
