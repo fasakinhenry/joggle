@@ -18,8 +18,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Complete profile setup', completed: true },
             { id: 2, title: 'Read company handbook', completed: true },
-            { id: 3, title: 'Schedule mentor meeting', completed: true },
-          ],
+            { id: 3, title: 'Schedule mentor meeting', completed: true }
+          ]
         },
         {
           id: '100008',
@@ -31,8 +31,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Join team channels', completed: false },
             { id: 2, title: 'Set up notifications', completed: false },
-            { id: 3, title: 'Introduction message', completed: false },
-          ],
+            { id: 3, title: 'Introduction message', completed: false }
+          ]
         },
         {
           id: '100009',
@@ -43,8 +43,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Navigate company resources', completed: true },
             { id: 2, title: 'Bookmark important pages', completed: true },
-            { id: 3, title: 'Complete intranet quiz', completed: true },
-          ],
+            { id: 3, title: 'Complete intranet quiz', completed: true }
+          ]
         },
         {
           id: '100010',
@@ -55,8 +55,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Watch mindset videos', completed: false },
             { id: 2, title: 'Complete reflection exercise', completed: false },
-            { id: 3, title: 'Submit mindset assessment', completed: false },
-          ],
+            { id: 3, title: 'Submit mindset assessment', completed: false }
+          ]
         },
         {
           id: '1103',
@@ -67,10 +67,10 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Basic shell commands', completed: true },
             { id: 2, title: 'File navigation exercises', completed: true },
-            { id: 3, title: 'Shell scripting basics', completed: true },
-          ],
-        },
-      ],
+            { id: 3, title: 'Shell scripting basics', completed: true }
+          ]
+        }
+      ]
     },
     {
       id: 'frontend',
@@ -89,8 +89,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Semantic HTML structure', completed: true },
             { id: 2, title: 'CSS Grid and Flexbox', completed: true },
-            { id: 3, title: 'Responsive design project', completed: true },
-          ],
+            { id: 3, title: 'Responsive design project', completed: true }
+          ]
         },
         {
           id: '200002',
@@ -99,14 +99,10 @@ export const lessonsData = {
           progress: 75,
           status: 'in_progress',
           tasks: [
-            {
-              id: 1,
-              title: 'Arrow functions and destructuring',
-              completed: true,
-            },
+            { id: 1, title: 'Arrow functions and destructuring', completed: true },
             { id: 2, title: 'Promises and async/await', completed: true },
-            { id: 3, title: 'ES6 modules project', completed: false },
-          ],
+            { id: 3, title: 'ES6 modules project', completed: false }
+          ]
         },
         {
           id: '200003',
@@ -117,8 +113,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Functional components', completed: true },
             { id: 2, title: 'Props and state management', completed: true },
-            { id: 3, title: 'Component composition', completed: true },
-          ],
+            { id: 3, title: 'Component composition', completed: true }
+          ]
         },
         {
           id: '200004',
@@ -129,8 +125,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'useState and useEffect', completed: true },
             { id: 2, title: 'Custom hooks creation', completed: true },
-            { id: 3, title: 'Performance optimization', completed: false },
-          ],
+            { id: 3, title: 'Performance optimization', completed: false }
+          ]
         },
         {
           id: '200005',
@@ -141,8 +137,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Redux store setup', completed: false },
             { id: 2, title: 'Actions and reducers', completed: false },
-            { id: 3, title: 'React-Redux integration', completed: false },
-          ],
+            { id: 3, title: 'React-Redux integration', completed: false }
+          ]
         },
         {
           id: '200006',
@@ -153,8 +149,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Unit testing components', completed: false },
             { id: 2, title: 'Integration testing', completed: false },
-            { id: 3, title: 'Testing user interactions', completed: false },
-          ],
+            { id: 3, title: 'Testing user interactions', completed: false }
+          ]
         },
         {
           id: '200007',
@@ -163,14 +159,10 @@ export const lessonsData = {
           progress: 0,
           status: 'locked',
           tasks: [
-            {
-              id: 1,
-              title: 'Code splitting and lazy loading',
-              completed: false,
-            },
+            { id: 1, title: 'Code splitting and lazy loading', completed: false },
             { id: 2, title: 'Memoization techniques', completed: false },
-            { id: 3, title: 'Bundle optimization', completed: false },
-          ],
+            { id: 3, title: 'Bundle optimization', completed: false }
+          ]
         },
         {
           id: '200008',
@@ -181,10 +173,10 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Project planning and design', completed: false },
             { id: 2, title: 'Implementation and testing', completed: false },
-            { id: 3, title: 'Deployment and presentation', completed: false },
-          ],
-        },
-      ],
+            { id: 3, title: 'Deployment and presentation', completed: false }
+          ]
+        }
+      ]
     },
     {
       id: 'backend',
@@ -203,8 +195,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Node.js runtime basics', completed: true },
             { id: 2, title: 'File system operations', completed: true },
-            { id: 3, title: 'HTTP server creation', completed: true },
-          ],
+            { id: 3, title: 'HTTP server creation', completed: true }
+          ]
         },
         {
           id: '300002',
@@ -215,8 +207,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Express routing', completed: true },
             { id: 2, title: 'Middleware implementation', completed: true },
-            { id: 3, title: 'Error handling', completed: false },
-          ],
+            { id: 3, title: 'Error handling', completed: false }
+          ]
         },
         {
           id: '300003',
@@ -227,8 +219,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Database schema design', completed: false },
             { id: 2, title: 'SQL queries and joins', completed: false },
-            { id: 3, title: 'Database optimization', completed: false },
-          ],
+            { id: 3, title: 'Database optimization', completed: false }
+          ]
         },
         {
           id: '300004',
@@ -239,8 +231,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'REST principles', completed: false },
             { id: 2, title: 'API endpoints creation', completed: false },
-            { id: 3, title: 'API documentation', completed: false },
-          ],
+            { id: 3, title: 'API documentation', completed: false }
+          ]
         },
         {
           id: '300005',
@@ -251,8 +243,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'JWT implementation', completed: false },
             { id: 2, title: 'Role-based access control', completed: false },
-            { id: 3, title: 'Security best practices', completed: false },
-          ],
+            { id: 3, title: 'Security best practices', completed: false }
+          ]
         },
         {
           id: '300006',
@@ -263,10 +255,10 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Full-stack integration', completed: false },
             { id: 2, title: 'Cloud deployment', completed: false },
-            { id: 3, title: 'Performance monitoring', completed: false },
-          ],
-        },
-      ],
+            { id: 3, title: 'Performance monitoring', completed: false }
+          ]
+        }
+      ]
     },
     {
       id: 'devops',
@@ -285,8 +277,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Branching strategies', completed: false },
             { id: 2, title: 'Merge conflicts resolution', completed: false },
-            { id: 3, title: 'Code review processes', completed: false },
-          ],
+            { id: 3, title: 'Code review processes', completed: false }
+          ]
         },
         {
           id: '400002',
@@ -297,8 +289,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Docker fundamentals', completed: false },
             { id: 2, title: 'Container orchestration', completed: false },
-            { id: 3, title: 'Multi-container applications', completed: false },
-          ],
+            { id: 3, title: 'Multi-container applications', completed: false }
+          ]
         },
         {
           id: '400003',
@@ -309,8 +301,8 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'GitHub Actions setup', completed: false },
             { id: 2, title: 'Automated testing', completed: false },
-            { id: 3, title: 'Deployment automation', completed: false },
-          ],
+            { id: 3, title: 'Deployment automation', completed: false }
+          ]
         },
         {
           id: '400004',
@@ -321,13 +313,13 @@ export const lessonsData = {
           tasks: [
             { id: 1, title: 'Cloud platform setup', completed: false },
             { id: 2, title: 'Application monitoring', completed: false },
-            { id: 3, title: 'Performance optimization', completed: false },
-          ],
-        },
-      ],
-    },
+            { id: 3, title: 'Performance optimization', completed: false }
+          ]
+        }
+      ]
+    }
   ],
-
+  
   // Overall progress analytics
   overallProgress: {
     totalLessons: 23,
@@ -337,5 +329,101 @@ export const lessonsData = {
     streak: 7,
     totalTasks: 69,
     completedTasks: 32,
+    totalGrade: 85.7,
+    gpa: 3.4
   },
+
+  // Ongoing Projects
+  ongoingLessons: [
+    {
+      id: 'proj-001',
+      title: 'E-commerce React Application',
+      category: 'Frontend Development',
+      description: 'Build a full-featured e-commerce platform with React, Redux, and payment integration',
+      dueDate: '2024-01-15',
+      progress: 65,
+      grade: null,
+      tasks: [
+        { id: 1, title: 'Setup project structure', completed: true },
+        { id: 2, title: 'Implement product catalog', completed: true },
+        { id: 3, title: 'Create shopping cart', completed: false },
+        { id: 4, title: 'Payment integration', completed: false },
+        { id: 5, title: 'Testing and deployment', completed: false }
+      ],
+      instructor: 'Sarah Johnson'
+    },
+    {
+      id: 'proj-002',
+      title: 'RESTful API with Node.js',
+      category: 'Backend Development',
+      description: 'Develop a scalable REST API with authentication, database integration, and documentation',
+      dueDate: '2024-01-20',
+      progress: 40,
+      grade: null,
+      tasks: [
+        { id: 1, title: 'API design and planning', completed: true },
+        { id: 2, title: 'Database schema creation', completed: true },
+        { id: 3, title: 'Authentication system', completed: false },
+        { id: 4, title: 'CRUD operations', completed: false },
+        { id: 5, title: 'API documentation', completed: false }
+      ],
+      instructor: 'Alex Kumar'
+    }
+  ],
+
+  // Completed Projects
+  completedLessons: [
+    {
+      id: 'proj-003',
+      title: 'Portfolio Website',
+      category: 'Frontend Development',
+      description: 'Personal portfolio showcasing projects and skills with responsive design',
+      completedDate: '2023-12-10',
+      progress: 100,
+      grade: 92,
+      tasks: [
+        { id: 1, title: 'Design wireframes', completed: true },
+        { id: 2, title: 'HTML/CSS implementation', completed: true },
+        { id: 3, title: 'JavaScript functionality', completed: true },
+        { id: 4, title: 'Responsive design', completed: true },
+        { id: 5, title: 'Deployment', completed: true }
+      ],
+      instructor: 'Sarah Johnson',
+      feedback: 'Excellent work! Great attention to detail and clean code structure.'
+    },
+    {
+      id: 'proj-004',
+      title: 'Company Intranet Navigation',
+      category: 'Onboarding',
+      description: 'Created comprehensive guide for navigating company resources and tools',
+      completedDate: '2023-11-25',
+      progress: 100,
+      grade: 88,
+      tasks: [
+        { id: 1, title: 'Resource mapping', completed: true },
+        { id: 2, title: 'Documentation creation', completed: true },
+        { id: 3, title: 'Video tutorials', completed: true },
+        { id: 4, title: 'User testing', completed: true }
+      ],
+      instructor: 'David Rodriguez',
+      feedback: 'Good comprehensive guide. Could use more interactive elements.'
+    },
+    {
+      id: 'proj-005',
+      title: 'Shell Scripting Automation',
+      category: 'DevOps',
+      description: 'Automated deployment scripts and system administration tasks',
+      completedDate: '2023-12-01',
+      progress: 100,
+      grade: 85,
+      tasks: [
+        { id: 1, title: 'Script planning', completed: true },
+        { id: 2, title: 'Basic automation scripts', completed: true },
+        { id: 3, title: 'Error handling', completed: true },
+        { id: 4, title: 'Testing and optimization', completed: true }
+      ],
+      instructor: 'Tom Wilson',
+      feedback: 'Solid implementation. Consider adding more robust error handling.'
+    }
+  ]
 };
