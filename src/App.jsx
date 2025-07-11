@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import Landing from './pages/Landing';
@@ -10,8 +6,8 @@ import Landing from './pages/Landing';
 // Cosmos Portal
 import Dashboard from './pages/cosmos/Dashboard';
 import Resources from './pages/cosmos/Resources';
-import Certifications from './pages/cosmos/Certifications';
 import Events from './pages/cosmos/Events';
+import Certifications from './pages/cosmos/Certifications';
 import Career from './pages/cosmos/Career';
 import Leaderboard from './pages/cosmos/Leaderboard';
 import AI from './pages/cosmos/AI';

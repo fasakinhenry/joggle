@@ -1,5 +1,3 @@
-// src/components/cosmos/Header.jsx
-import React from 'react';
 import { Search, MessageSquare, Bell } from 'lucide-react';
 
 const Header = () => {
