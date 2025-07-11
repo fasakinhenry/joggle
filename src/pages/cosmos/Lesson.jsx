@@ -649,7 +649,7 @@ const Lesson = () => {
                                   <span className='text-sm font-medium text-red-600'>
                                     {lesson.id}
                                   </span>
-                                  <h4 className='font-medium text-gray-900'>
+                                  <h4 className='font-bold text-gray-900'>
                                     {lesson.title}
                                   </h4>
                                   <div className='flex items-center gap-4 mt-1'>
@@ -725,7 +725,7 @@ const Lesson = () => {
                                 {lesson.id}
                               </span>
                             </div>
-                            <h4 className='font-medium text-gray-900 mb-2'>
+                            <h4 className='font-bold text-gray-900 mb-2'>
                               {lesson.title}
                             </h4>
                             <p className='text-sm text-gray-600 mb-3'>
