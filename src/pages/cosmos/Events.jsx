@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Calendar as CalendarIcon,
   List,
@@ -296,7 +296,7 @@ const Events = () => {
                 startAccessor='start'
                 endAccessor='end'
                 style={{ height: '100%' }}
-                views={[Views.MONTH, Views.WEEK, Views.DAY, Views.AGENDA]} // Added AGENDA view
+                views={[Views.MONTH, Views.WEEK, Views.DAY, Views.AGENDA]}
                 view={calendarView}
                 onView={(newView) => setCalendarView(newView)}
                 date={date}
