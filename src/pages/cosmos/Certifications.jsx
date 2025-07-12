@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Rocket, Filter, BadgeCheck, Download, Star, Award, Lock } from 'lucide-react';
+import {
+  Rocket,
+  Filter,
+  BadgeCheck,
+  Download,
+  Star,
+  Award,
+  Lock,
+} from 'lucide-react';
 
 const Certifications = () => {
   const [activeTab, setActiveTab] = useState('certifications');
@@ -58,25 +66,82 @@ const Certifications = () => {
   ];
 
   const userJourney = [
-    { milestone: 'Enrolled in First Course', date: 'May 20, 2025', completed: true },
-    { milestone: 'Reached 50% Progress', date: 'June 10, 2025', completed: true },
-    { milestone: 'Earned First Certificate', date: 'June 15, 2025', completed: true },
-    { milestone: 'Achieved Intermediate Level', date: 'July 5, 2025', completed: false },
+    {
+      milestone: 'Enrolled in First Course',
+      date: 'May 20, 2025',
+      completed: true,
+    },
+    {
+      milestone: 'Reached 50% Progress',
+      date: 'June 10, 2025',
+      completed: true,
+    },
+    {
+      milestone: 'Earned First Certificate',
+      date: 'June 15, 2025',
+      completed: true,
+    },
+    {
+      milestone: 'Achieved Intermediate Level',
+      date: 'July 5, 2025',
+      completed: false,
+    },
   ];
 
   const availableBadges = [
-    { id: 1, name: 'Nova Explorer', image: '/badges/nova-explorer.png', criteria: 'Complete 1 certification', locked: false },
-    { id: 2, name: 'Stellar Pioneer', image: '/badges/stellar-pioneer.png', criteria: 'Complete 2 certifications', locked: true },
-    { id: 3, name: 'Galaxy Trailblazer', image: '/badges/galaxy-trailblazer.png', criteria: 'Complete 3 certifications', locked: true },
+    {
+      id: 1,
+      name: 'Nova Explorer',
+      image: '/badges/nova-explorer.png',
+      criteria: 'Complete 1 certification',
+      locked: false,
+    },
+    {
+      id: 2,
+      name: 'Stellar Pioneer',
+      image: '/badges/stellar-pioneer.png',
+      criteria: 'Complete 2 certifications',
+      locked: true,
+    },
+    {
+      id: 3,
+      name: 'Galaxy Trailblazer',
+      image: '/badges/galaxy-trailblazer.png',
+      criteria: 'Complete 3 certifications',
+      locked: true,
+    },
   ];
 
-  const [userBadges, setUserBadges] = useState(availableBadges.filter(badge => !badge.locked && !availableBadges.some(b => b.id < badge.id && b.locked)));
+  const [userBadges, setUserBadges] = useState(
+    availableBadges.filter(
+      (badge) =>
+        !badge.locked &&
+        !availableBadges.some((b) => b.id < badge.id && b.locked)
+    )
+  );
+
+  const spaceLevels = [
+    'Nova Explorer',
+    'Stellar Navigator',
+    'Lunar Pathfinder',
+    'Galactic Commander',
+    'Cosmic Voyager',
+    'Nebula Pioneer',
+    'Starship Captain',
+    'Interstellar Explorer',
+    'Black Hole Navigator',
+    'Quantum Astronaut',
+  ];
+
+  const [currentLevel, setCurrentLevel] = useState('Nova Explorer'); // Initial level
 
   const filteredCerts = certifications.filter((cert) => {
     return (
       (filters.category === 'all' || cert.category === filters.category) &&
-      (filters.difficulty === 'all' || cert.difficulty === filters.difficulty) &&
-      (filters.status === 'all' || (filters.status === 'enrolled' ? cert.enrolled : !cert.enrolled))
+      (filters.difficulty === 'all' ||
+        cert.difficulty === filters.difficulty) &&
+      (filters.status === 'all' ||
+        (filters.status === 'enrolled' ? cert.enrolled : !cert.enrolled))
     );
   });
 
@@ -90,10 +155,17 @@ const Certifications = () => {
   };
 
   const awardBadge = (badgeId) => {
-    const badgeToAward = availableBadges.find(badge => badge.id === badgeId && !badge.locked && !userBadges.some(b => b.id === badgeId));
+    const badgeToAward = availableBadges.find(
+      (badge) =>
+        badge.id === badgeId &&
+        !badge.locked &&
+        !userBadges.some((b) => b.id === badgeId)
+    );
     if (badgeToAward) {
       setUserBadges([...userBadges, badgeToAward]);
       console.log(`Awarded ${badgeToAward.name} to user`);
+      // Update level based on badge count (e.g., next level after certain badges)
+      if (userBadges.length + 1 >= 1) setCurrentLevel('Stellar Navigator'); // Example progression
     }
   };
 
@@ -138,7 +210,9 @@ const Certifications = () => {
 
         {activeTab === 'certifications' && (
           <>
-            <h1 className='text-3xl font-bold text-gray-900 mb-6'>Certifications</h1>
+            <h1 className='text-3xl font-bold text-gray-900 mb-6'>
+              Certifications
+            </h1>
             <p className='text-gray-600 mb-4'>
               Explore various certifications to enhance your skills and career.
             </p>
@@ -150,14 +224,19 @@ const Certifications = () => {
                 >
                   <div className='flex justify-between items-start'>
                     <div>
-                      <h2 className='text-xl font-semibold text-gray-900'>{cert.title}</h2>
+                      <h2 className='text-xl font-semibold text-gray-900'>
+                        {cert.title}
+                      </h2>
                       <p className='text-gray-600'>{cert.description}</p>
                       <p className='text-sm text-gray-500 mt-1'>
-                        Category: {cert.category} | Difficulty: {cert.difficulty} | Level: {cert.level}
+                        Category: {cert.category} | Difficulty:{' '}
+                        {cert.difficulty} | Level: {cert.level}
                       </p>
                     </div>
                     <div className='text-right'>
-                      <p className='text-sm text-gray-600'>Progress: {cert.progress}%</p>
+                      <p className='text-sm text-gray-600'>
+                        Progress: {cert.progress}%
+                      </p>
                       <div className='w-24 bg-gray-200 h-2 rounded-full mt-1'>
                         <div
                           className='bg-blue-600 h-2 rounded-full'
@@ -184,7 +263,9 @@ const Certifications = () => {
 
         {activeTab === 'documents' && (
           <div className='space-y-4'>
-            <h1 className='text-3xl font-bold text-gray-900 mb-6'>Certificates</h1>
+            <h1 className='text-3xl font-bold text-gray-900 mb-6'>
+              Certificates
+            </h1>
             {certificates.map((cert) => (
               <div
                 key={cert.id}
@@ -192,11 +273,17 @@ const Certifications = () => {
               >
                 <div className='flex justify-between items-center'>
                   <div>
-                    <h2 className='text-xl font-semibold text-gray-900'>{cert.title}</h2>
-                    <p className='text-sm text-gray-600'>Issued: {cert.issuedDate}</p>
+                    <h2 className='text-xl font-semibold text-gray-900'>
+                      {cert.title}
+                    </h2>
+                    <p className='text-sm text-gray-600'>
+                      Issued: {cert.issuedDate}
+                    </p>
                   </div>
                   <select
-                    onChange={(e) => handleDownload({ ...cert, format: e.target.value })}
+                    onChange={(e) =>
+                      handleDownload({ ...cert, format: e.target.value })
+                    }
                     className='p-1 border border-gray-200 rounded text-sm text-gray-700 bg-white'
                     defaultValue={cert.format}
                   >
@@ -214,7 +301,9 @@ const Certifications = () => {
           <div className='space-y-6'>
             <h1 className='text-3xl font-bold text-gray-900 mb-6'>Badges</h1>
             <div>
-              <h2 className='text-xl font-semibold text-gray-900 mb-4'>Available Badges</h2>
+              <h2 className='text-xl font-semibold text-gray-900 mb-4'>
+                Available Badges
+              </h2>
               <div className='space-y-4'>
                 {availableBadges.map((badge) => (
                   <div
@@ -228,18 +317,26 @@ const Certifications = () => {
                         className='w-18 h-18 mr-2 object-cover rounded-full'
                       />
                       <div>
-                        <h3 className='text-lg font-semibold text-gray-900'>{badge.name}</h3>
-                        <p className='text-sm text-gray-600'>{badge.criteria}</p>
+                        <h3 className='text-lg font-semibold text-gray-900'>
+                          {badge.name}
+                        </h3>
+                        <p className='text-sm text-gray-600'>
+                          {badge.criteria}
+                        </p>
                       </div>
                     </div>
                     <button
                       onClick={() => awardBadge(badge.id)}
                       className={`px-3 py-1 rounded text-sm ${
-                        badge.locked || userBadges.some(b => b.id === badge.id)
+                        badge.locked ||
+                        userBadges.some((b) => b.id === badge.id)
                           ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
                           : 'bg-blue-600 text-white hover:bg-blue-700'
                       }`}
-                      disabled={badge.locked || userBadges.some(b => b.id === badge.id)}
+                      disabled={
+                        badge.locked ||
+                        userBadges.some((b) => b.id === badge.id)
+                      }
                     >
                       {badge.locked ? <Lock className='w-4 h-4' /> : 'Award'}
                     </button>
@@ -248,7 +345,9 @@ const Certifications = () => {
               </div>
             </div>
             <div>
-              <h2 className='text-xl font-semibold text-gray-900 mb-4'>Your Badges</h2>
+              <h2 className='text-xl font-semibold text-gray-900 mb-4'>
+                Your Badges
+              </h2>
               <div className='grid grid-cols-2 gap-4'>
                 {userBadges.map((badge) => (
                   <div
@@ -260,11 +359,16 @@ const Certifications = () => {
                       alt={badge.name}
                       className='w-12 h-12 mr-2 object-cover rounded-full'
                     />
-                    <h3 className='text-lg font-semibold text-gray-900'>{badge.name}</h3>
+                    <h3 className='text-lg font-semibold text-gray-900'>
+                      {badge.name}
+                    </h3>
                   </div>
                 ))}
                 {userBadges.length === 0 && (
-                  <p className='text-gray-500'>No badges earned yet. Complete certifications to unlock badges!</p>
+                  <p className='text-gray-500'>
+                    No badges earned yet. Complete certifications to unlock
+                    badges!
+                  </p>
                 )}
               </div>
             </div>
@@ -291,7 +395,9 @@ const Certifications = () => {
             </select>
           </div>
           <div>
-            <label className='text-sm text-gray-600 mb-1 block'>Difficulty</label>
+            <label className='text-sm text-gray-600 mb-1 block'>
+              Difficulty
+            </label>
             <select
               name='difficulty'
               value={filters.difficulty}
@@ -320,7 +426,9 @@ const Certifications = () => {
         </div>
         {/* User Journey */}
         <div className='mt-6'>
-          <h3 className='text-lg font-semibold text-gray-900 mb-2'>User Journey</h3>
+          <h3 className='text-lg font-semibold text-gray-900 mb-2'>
+            User Journey
+          </h3>
           <ul className='space-y-2'>
             {userJourney.map((step, index) => (
               <li key={index} className='flex items-center text-sm'>
@@ -329,12 +437,27 @@ const Certifications = () => {
                     step.completed ? 'bg-green-500' : 'bg-gray-300'
                   }`}
                 />
-                <span className={step.completed ? 'text-gray-700' : 'text-gray-400'}>
+                <span
+                  className={step.completed ? 'text-gray-700' : 'text-gray-400'}
+                >
                   {step.milestone} ({step.date})
                 </span>
               </li>
             ))}
           </ul>
+        </div>
+        {/* User Level */}
+        <div className='mt-6'>
+          <h3 className='text-lg font-semibold text-gray-900 mb-2'>
+            User Level
+          </h3>
+          <div className='bg-gray-50 p-4 rounded-lg border border-gray-200'>
+            <h4 className='text-xl font-bold text-blue-600'>{currentLevel}</h4>
+            <p className='text-sm text-gray-600 mt-1'>
+              Explore the cosmos and advance to higher ranks by completing
+              certifications and earning badges!
+            </p>
+          </div>
         </div>
       </div>
     </div>
