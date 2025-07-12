@@ -576,3 +576,66 @@ export const projectsData = [
   },
 ];
 
+export const eventsData = [
+  {
+    id: 1,
+    title: 'Week 1 Test',
+    description: 'Initial assessment for the course.',
+    date: '2025-07-07T09:00:00Z',
+  },
+  {
+    id: 2,
+    title: 'Welcome to ALX',
+    description: 'Introduction to the ALX platform.',
+    date: '2025-07-06T10:00:00Z',
+  },
+  {
+    id: 3,
+    title: 'Platform Onboarding',
+    description: 'Learn how to navigate the platform.',
+    date: '2025-07-06T11:00:00Z',
+  },
+  {
+    id: 4,
+    title: 'Community Guidelines: Getting Started',
+    description: 'Overview of community rules.',
+    date: '2025-07-06T13:00:00Z',
+  },
+  {
+    id: 5,
+    title: 'Check Your Understanding: Tech Resources',
+    description: 'Quiz on available tech resources.',
+    date: '2025-07-06T14:00:00Z',
+  },
+  {
+    id: 6,
+    title: 'Individual Activity: Skills Inventory',
+    description: 'Assess your current skills.',
+    date: '2025-07-06T15:00:00Z',
+  },
+  {
+    id: 7,
+    title: 'Check Your Understanding: Course Overview',
+    description: 'Review course structure.',
+    date: '2025-07-06T16:00:00Z',
+  },
+  {
+    id: 8,
+    title: 'Check Your Understanding: Community Guidelines & Code of Conduct',
+    description: 'Test on community standards.',
+    date: '2025-07-06T17:00:00Z',
+  },
+  {
+    id: 9,
+    title: 'Week 1 Milestone',
+    description: 'Celebrate the first week achievements.',
+    date: '2025-07-07T12:00:00Z',
+  },
+  {
+    id: 10,
+    title: 'Stellar Workshop',
+    description: 'Advanced coding session.',
+    date: '2025-07-12T09:00:00Z',
+  },
+];
+

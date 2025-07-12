@@ -2,108 +2,108 @@
 @import 'tailwindcss';
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-Thin.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-Thin.woff') format('woff');
-    font-weight: 100;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-Thin.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-Thin.woff') format('woff');
+  font-weight: 100;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-ThinItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-ThinItalic.woff') format('woff');
-    font-weight: 100;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-ThinItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-UltraLight.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-UltraLight.woff') format('woff');
-    font-weight: 200;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-UltraLight.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-UltraLight.woff') format('woff');
+  font-weight: 200;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-UltraLightItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-UltraLightItalic.woff') format('woff');
-    font-weight: 200;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-UltraLightItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-UltraLightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-Regular.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-Regular.woff') format('woff');
-    font-weight: 400;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-Regular.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-Italic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-Italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-Italic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-Normal.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-Normal.woff') format('woff');
-    font-weight: 500;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-Normal.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-Normal.woff') format('woff');
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-NormalItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-NormalItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-NormalItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-NormalItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-SemiBold.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-SemiBold.woff') format('woff');
-    font-weight: 600;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-SemiBold.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-SemiBold.woff') format('woff');
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-SemiBoldItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-SemiBoldItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-UltraBold.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-UltraBold.woff') format('woff');
-    font-weight: 800;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-UltraBold.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-UltraBold.woff') format('woff');
+  font-weight: 800;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-UltraBoldItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-UltraBoldItalic.woff') format('woff');
-    font-weight: 800;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-UltraBoldItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-UltraBoldItalic.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-Black.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-Black.woff') format('woff');
-    font-weight: 900;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-Black.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-Black.woff') format('woff');
+  font-weight: 900;
 }
 
 @font-face {
-    font-family: 'Armin Grotesk';
-    src: url('/fonts/ArminGrotesk-BlackItalic.woff2') format('woff2'),
-         url('/fonts/ArminGrotesk-BlackItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
+  font-family: 'Armin Grotesk';
+  src: url('/fonts/ArminGrotesk-BlackItalic.woff2') format('woff2'),
+    url('/fonts/ArminGrotesk-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
 }
 
 body {
