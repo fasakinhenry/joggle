@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// Authentication Components
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import CheckEmail from './components/auth/CheckEmail';
+import AuthCallback from './components/auth/AuthCallback';
+import ResetPassword from './components/auth/ResetPassword';
 import Landing from './pages/Landing';
 
 // Cosmos Portal
@@ -32,6 +36,9 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path='/auth/signin' element={<SignIn />} />
         <Route path='/auth/signup' element={<SignUp />} />
+        <Route path='/auth/reset-password' element={<ResetPassword />} />
+        <Route path='/auth/callback' element={<AuthCallback />} />
+        <Route path='/auth/check-email' element={<CheckEmail />} />
 
         {/* Cosmos Portal Routes */}
         <Route path='/cosmos' element={<DashboardLayout />}>
