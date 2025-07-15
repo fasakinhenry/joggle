@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Eye, EyeOff, User, Mail, Lock } from 'lucide-react';
 import AuthLayout from '../../layout/AuthLayout';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { signup, socialLogin } from '../../utils/api';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    username: '',
     email: '',
     password: '',
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -18,14 +22,13 @@ const SignUp = () => {
       ...prev,
       [name]: value,
     }));
-
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
         [name]: '',
       }));
     }
+    setServerError('');
   };
 
   const validatePassword = (password) => {
@@ -33,36 +36,41 @@ const SignUp = () => {
     const hasUppercase = /[A-Z]/.test(password);
     const hasLowercase = /[a-z]/.test(password);
     const hasNumber = /\d/.test(password);
-    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-    return minLength && hasUppercase && hasLowercase && hasNumber && hasSymbol;
+    return minLength && hasUppercase && hasLowercase && hasNumber;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
-    // Validation
-    if (!formData.firstName.trim())
-      newErrors.firstName = 'First name is required';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+    if (!formData.username.trim()) newErrors.username = 'Username is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = 'Email is invalid';
     if (!formData.password) newErrors.password = 'Password is required';
     else if (!validatePassword(formData.password))
-      newErrors.password = 'Password requirements not met';
+      newErrors.password =
+        'Password must be at least 8 characters with uppercase, lowercase, and number';
 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Handle successful signup
-      console.log('Sign up successful:', formData);
+      try {
+        await signup(formData.username, formData.email, formData.password);
+        navigate('/auth/check-email');
+      } catch (error) {
+        setServerError(
+          error.response?.data?.error || 'Failed to sign up. Please try again.'
+        );
+        if (error.response?.status === 429) {
+          setServerError('Too many requests. Please try again later.');
+        }
+      }
     }
   };
 
   const handleSocialSignUp = (provider) => {
-    console.log(`Sign up with ${provider}`);
+    socialLogin(provider);
   };
 
   return (
@@ -72,6 +80,9 @@ const SignUp = () => {
       heroTitle='Reach the stars with Joggle!'
       heroSubtitle='Your gateway to gaining in-demand skills and joining our talent community!'
     >
+      {serverError && (
+        <p className='text-red-500 text-sm mb-4 text-center'>{serverError}</p>
+      )}
       {/* Social Sign Up Options */}
       <div className='mb-6'>
         <div className='flex items-center gap-4 mb-4'>
@@ -85,7 +96,7 @@ const SignUp = () => {
         <div className='flex gap-4 justify-center'>
           {/* Google */}
           <button
-            onClick={() => handleSocialSignUp('Google')}
+            onClick={() => handleSocialSignUp('google')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg className='w-5 h-5' viewBox='0 0 24 24'>
@@ -110,7 +121,7 @@ const SignUp = () => {
 
           {/* LinkedIn */}
           <button
-            onClick={() => HandleSocialSignUp('LinkedIn')}
+            onClick={() => handleSocialSignUp('linkedin')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
@@ -124,7 +135,7 @@ const SignUp = () => {
 
           {/* Facebook */}
           <button
-            onClick={() => HandleSocialSignUp('Facebook')}
+            onClick={() => handleSocialSignUp('facebook')}
             className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
           >
             <svg
@@ -133,6 +144,20 @@ const SignUp = () => {
               viewBox='0 0 24 24'
             >
               <path d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z' />
+            </svg>
+          </button>
+
+          {/* GitHub */}
+          <button
+            onClick={() => handleSocialSignUp('github')}
+            className='flex items-center justify-center cursor-pointer w-full h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors'
+          >
+            <svg
+              className='w-5 h-5 text-gray-800'
+              fill='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.906-.015 3.3 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12' />
             </svg>
           </button>
         </div>
@@ -149,57 +174,30 @@ const SignUp = () => {
         </div>
 
         <form onSubmit={handleSubmit} className='space-y-4'>
-          {/* First Name */}
+          {/* Username */}
           <div>
             <label
-              htmlFor='firstName'
+              htmlFor='username'
               className='block text-sm font-medium text-gray-700 mb-1'
             >
-              First Name <span className='text-red-500'>*</span>
+              Username <span className='text-red-500'>*</span>
             </label>
             <div className='relative'>
               <User className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5' />
               <input
                 type='text'
-                id='firstName'
-                name='firstName'
-                value={formData.firstName}
+                id='username'
+                name='username'
+                value={formData.username}
                 onChange={handleInputChange}
-                placeholder='Enter your first name'
+                placeholder='Enter your username'
                 className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                  errors.firstName ? 'border-red-500' : 'border-gray-300'
+                  errors.username ? 'border-red-500' : 'border-gray-300'
                 }`}
               />
             </div>
-            {errors.firstName && (
-              <p className='text-red-500 text-sm mt-1'>{errors.firstName}</p>
-            )}
-          </div>
-
-          {/* Last Name */}
-          <div>
-            <label
-              htmlFor='lastName'
-              className='block text-sm font-medium text-gray-700 mb-1'
-            >
-              Last Name <span className='text-red-500'>*</span>
-            </label>
-            <div className='relative'>
-              <User className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5' />
-              <input
-                type='text'
-                id='lastName'
-                name='lastName'
-                value={formData.lastName}
-                onChange={handleInputChange}
-                placeholder='Enter your last name'
-                className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-1 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                  errors.lastName ? 'border-red-500' : 'border-gray-300'
-                }`}
-              />
-            </div>
-            {errors.lastName && (
-              <p className='text-red-500 text-sm mt-1'>{errors.lastName}</p>
+            {errors.username && (
+              <p className='text-red-500 text-sm mt-1'>{errors.username}</p>
             )}
           </div>
 
@@ -264,8 +262,8 @@ const SignUp = () => {
               </button>
             </div>
             <p className='text-[13px] text-gray-500 mt-3'>
-              Must be at least 8 characters, contain uppercase, lowercase,
-              numeric and symbol characters
+              Must be at least 8 characters, contain uppercase, lowercase, and
+              number
             </p>
             {errors.password && (
               <p className='text-red-500 text-sm mt-1'>{errors.password}</p>
@@ -275,7 +273,6 @@ const SignUp = () => {
           {/* Submit Button */}
           <button
             type='submit'
-            onClick={() => window.location.href = '/launchpad'}
             className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:ring-offset-0 transition-colors cursor-pointer outline-none'
           >
             Sign up
@@ -289,7 +286,7 @@ const SignUp = () => {
           className='text-sm text-gray-600'
           style={{ fontFamily: 'Geist, sans-serif' }}
         >
-          Don't have an account?{' '}
+          Already have an account?{' '}
           <a
             href='/auth/signin'
             className='text-blue-600 hover:text-blue-500 font-medium'
